@@ -1,4 +1,75 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Poster Palace
+
+Welcome to Poster Palace, the place where you can buy digital posters and pictures. For everyone looking to 'cheer up' their wall, this is your place. 
+
+MOCKUP PICTURE
+
+## Features
+---
+### Favicon
+### Navigation Bar
+### Promoted Categories
+### Promoted Products
+### About Us
+### Contact
+### Terms & Conditions
+### Footer
+### Payment System
+
+## Features left to implement
+---
+
+## Products
+---
+## Design
+---
+- I used Balsamiq to create a first picture of what this project would look like.
+- On [Coolors](https://coolors.co/) I created a colour pallete so I know what colours match and look nice together. The colours I used are:
+
+
+
+
+## Libraries & Installations
+---
+
+## Agile
+---
+When planning this project, I started writing the epics first. Then I broke them down into user stories. For this I have created an Excel sheet and a kanban board. I prefered the Excel sheet because for me it created and clearer overview than the kanban board.
+
+For this portfolio project the estimated time is 6 weeks.
+For the total project (including the features left to implement) I am estimating 12 weeks
+
+- LINK TO KANBAN BOARD
+- SCREENSHOT OF EXCEL SHEET
+
+## SEO
+---
+## Testing
+---
+## Bugs
+---
+### Solved
+### Unsolved
+
+## Deployment
+---
+
+## Credits
+---
+- [Stackoverflow]()
+- [Google Translate]()
+- [W3Schools]()
+- [Django Documentation]()
+- [Bootstrap Documentation]()
+- [Stripe Documentation]()
+
+### Acknowledgments
+- Thank you Code Institute and mentor Daisy for guiding me through this project. 
+- Thank you fellow students on Slack for the contact and motivation.
+- Thank you Tutor support for guiding me in the right direction.
+- Thank you Student Care for reaching out.
+
+
 
 Welcome USER_NAME,
 
