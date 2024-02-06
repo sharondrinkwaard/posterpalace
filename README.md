@@ -49,6 +49,12 @@ For the total project (including the features left to implement) I am estimating
 ## Bugs
 ---
 ### Solved
+
+- Copying the allauth templates into my own directory. Using the code in the terminal like in the videos didn't work. So I tried installing django allath again. Now the terminal displayed 'Requirement already satisfied' with the correct location of where allauth was installed. Using this helped me copy all those files into my own directory.
+'''
+    cp -r /usr/local/python/3.10.13/lib/python3.10/site-packages/allauth/templates* ./templates/allauth/
+'''
+
 ### Unsolved
 
 ## Deployment
