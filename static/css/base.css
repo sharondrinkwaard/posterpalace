@@ -1,6 +1,27 @@
+/* General */
+
+* {
+    margin: auto;
+}
+
 h1 {
     color: blueviolet;
 }
-body {
-    background-color: yellow;
+
+/* Navbar */
+#logo {
+    height: 50px;
+    width: auto;
 }
+
+/* Index Header */
+.index-header {
+    background-image: url('/static/images/mountains.jpg');
+    background-position-y: 67%;
+    height: 30vh;
+    width: 100vh;
+}
+.header-text {
+    color: white;
+}
+

@@ -2,5 +2,17 @@
 {% load static %}
 
 {% block content %}
-<h1 class="text-succes">index.html is working!</h1>
+<section>
+    <div class="index-header w-100">
+        <div class="d-flex justify-content-center flex-column">
+            <h1 class=" header-text mt-5">The best stock photo's for just 0,99 each!</h1>
+            <div class="header-form w-50">
+                <form class="d-flex w-50 mt-2" method="GET" action="#" role="search">
+                    <input class="form-control input-group border-right-0 py-2" name="request" type="search" placeholder="What are you looking for?" aria-label="Search">
+                    <button class="input-group-text bg-white" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
