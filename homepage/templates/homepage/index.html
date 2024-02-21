@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+<!-- Homepage header + img + search form -->
 <section>
     <div class="index-header w-100">
         <div class="d-flex justify-content-center flex-column">
@@ -13,6 +14,37 @@
                 </form>
             </div>
         </div>
+    </div>
+</section>
+<!-- Categories Gallery grid -->
+<section>
+    <div class="container">
+      <div class="container">
+        <div class="box rounded">
+          <a href="#">
+            <img src="/static/images/architecture.jpg">
+          </a>
+          <span>Architecture</span>
+        </div>
+        <div class="box rounded">
+          <a href="#">
+            <img src="/static/images/red_trees.jpg">
+          </a>
+          <span>Nature</span>
+        </div>
+        <div class="box rounded">
+          <a href="">
+            <img src="/static/images/people.jpg">
+          </a>
+          <span>People</span>
+        </div>
+        <div class="box rounded">
+          <a href="">
+            <img src="/static/images/art_2.jpg">
+          </a>
+          <span>Artistic</span>  
+        </div>
+      </div>
     </div>
 </section>
 {% endblock %}

@@ -7,9 +7,14 @@ MOCKUP PICTURE
 ## Features
 ---
 ### Favicon
+
+I generated a Favicon with the logo of Poster Palace on [WebsitePlanet](https://www.websiteplanet.com/nl/webtools/favicon-generator/)
+
+SCREENSHOT
+
 ### Navigation Bar
-### Promoted Categories
-### Promoted Products
+### Categories
+### Products
 ### About Us
 ### Contact
 ### Terms & Conditions
@@ -25,6 +30,13 @@ MOCKUP PICTURE
 ---
 - I used Balsamiq to create a first picture of what this project would look like.
 - On [Coolors](https://coolors.co/) I created a colour pallete so I know what colours match and look nice together. The colours I used are:
+- #f3c063 for the buttons
+---
+### Code used from other resources
+Some of the code of this project are from other resources. 
+The image grid on the homepage is taken from [CodePen](https://codepen.io/knyttneve/pen/YgZbLO) and I customized it a little so it would fit into my project.
+
+SCREENSHOT
 
 
 
