@@ -28,7 +28,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url 'homepage' %}">
               <img id="logo" src="/static/images/poster_palace.png" alt="poster palace logo">
             </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,9 +42,11 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Architecture</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Nature</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">People</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Artistic</a>
                         </div>
                     </li>
@@ -54,6 +56,7 @@
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="#">Terms&Conditions</a>
+                          <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="#">Cookies</a>
                       </div>
                   </li>
@@ -151,7 +154,7 @@
     </div>
   
     <div class="col-12 text-center pb-1">
-      <p> Copyright &copy; <script>document.write(new Date().getFullYear())</script> Nooks Warehouse</p>
+      <p> Copyright &copy; <script>document.write(new Date().getFullYear())</script> Poster Palace</p>
     </div>
   
   </footer>

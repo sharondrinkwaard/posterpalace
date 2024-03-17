@@ -12,4 +12,4 @@ def all_posters(request):
         'posters': posters,
     }
 
-    return render(request, 'posters/posters.html')
+    return render(request, 'posters/posters.html', context)

@@ -14,7 +14,13 @@ SCREENSHOT
 
 ### Navigation Bar
 ### Categories
+---
+There are currently 4 categories named Nature, Architecture, People and Artistic. All posters are linked to one category. 
 ### Products
+---
+The products I am using are an digital products, an jpeg image. They are not referred to a physical poster and need to be printed if required. 
+
+To load these posters onto my project, I created fixtures myself. I used the examples like mentioned in the walkthrough, but decided to create my own.  For this reason there are not thousands of images, but only the ones selected by me. 
 ### About Us
 ### Contact
 ### Terms & Conditions
