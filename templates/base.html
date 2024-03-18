@@ -38,16 +38,16 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Categories
+                            Posters
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Architecture</a>
+                            <a class="dropdown-item" href="{% url 'posters' %}?category=architecture">Architecture</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Nature</a>
+                            <a class="dropdown-item" href="{% url 'posters' %}?category=nature">Nature</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">People</a>
+                            <a class="dropdown-item" href="{% url 'posters' %}?category=people">People</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Artistic</a>
+                            <a class="dropdown-item" href="{% url 'posters' %}?category=artistic">Artistic</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
