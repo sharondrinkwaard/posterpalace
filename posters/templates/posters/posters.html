@@ -11,9 +11,9 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
                     {% if poster.image %}
-                        <a href="">
-                        <img class="card-img-top img-fluid rounded" src="{{ poster.image.url }}" alt="{{ poster.name }}">
-                        </a>
+                        <!-- <a href=""> -->
+                        <img id="{{ poster.sku }}" class="img-poster card-img-top img-fluid rounded" src="{{ poster.image.url }}" alt="{{ poster.name }}">
+                        <!-- </a> -->
                     {% else %}
                         <a href="">
                         <img class="card-img-top img-fluid" src="" alt="{{ poster.name }}">
@@ -59,7 +59,37 @@
             {% endfor %}
             </div>
         </div>
+       
     </div> 
 </section>
+<!-- Modal -->
+<div id="poster-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content modal-img" id="modal-img">
+</div>
 
+
+{% endblock %}
+
+{% block jscript %}
+<script>
+    // Get modal
+    var modal = document.getElementById("poster-modal");
+    // Get the image and insert it inside the modal
+    var img = document.getElementById("{{ poster.sku }}");
+    var modalImg = document.getElementById("modal-img");
+
+    img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+    span.onclick = function() { 
+    modal.style.display = "none";
+    }
+</script>
 {% endblock %}
