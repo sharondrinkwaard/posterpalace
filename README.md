@@ -76,6 +76,12 @@ Using the commands in the terminal like in the videos didn't work. So I tried in
 
 ### Unsolved
 
+- Currently when typing 
+''' pip3 freeze > requirements.txt ''' 
+in the terminal, it did result in an empty file. Previously this file was filled with all the dependencies, but now it is empty. 
+The problem was not in the terminal,  but that I created a new workspace on Gitpod so I could use the PRO version provided by Code Institute. I didn't know that I had to install all requirements again, so I did using:
+''' pip install -r requirements.txt ''' 
+
 ## Deployment
 ---
 
@@ -96,7 +102,7 @@ Using the commands in the terminal like in the videos didn't work. So I tried in
 
 
 
-Welcome USER_NAME,
+Welcome sharondrinkwaard,
 
 This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
