@@ -5,7 +5,7 @@ Welcome to Poster Palace, the place where you can buy digital posters and pictur
 MOCKUP PICTURE
 
 ## Features
----
+
 ### Favicon
 
 I generated a Favicon with the logo of Poster Palace on [WebsitePlanet](https://www.websiteplanet.com/nl/webtools/favicon-generator/)
@@ -18,7 +18,7 @@ SCREENSHOT
 There are currently 4 categories named Nature, Architecture, People and Artistic. All posters are linked to one category. 
 ### Products
 ---
-The products I am using are an digital products, an jpeg image. They are not referred to a physical poster and need to be printed if required. 
+The products I am using are digital products. They are not referred to a physical poster and need to be printed if required. 
 
 To load these posters onto my project, I created fixtures myself. I used the examples like mentioned in the walkthrough, but decided to create my own.  For this reason there are not thousands of images, but only the ones selected by me. 
 ### About Us
@@ -28,7 +28,7 @@ To load these posters onto my project, I created fixtures myself. I used the exa
 ### Payment System
 
 ## Features left to implement
----
+- The images need a watermark
 
 ## Products
 ---
@@ -61,11 +61,14 @@ For the total project (including the features left to implement) I am estimating
 - SCREENSHOT OF EXCEL SHEET
 
 ## SEO
----
+- Meta tags
+- Lighthouse report
+- Lightspeed
+- 
 ## Testing
 ---
 ## Bugs
----
+
 ### Solved
 
 - Copying the allauth templates into my own directory. 
@@ -83,7 +86,7 @@ The problem was not in the terminal,  but that I created a new workspace on Gitp
 ''' pip install -r requirements.txt ''' 
 
 ## Deployment
----
+
 
 ## Credits
 ---
