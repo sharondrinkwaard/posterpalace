@@ -27,6 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+AWS_DEFAULT_ACL = None
 
 ALLOWED_HOSTS = ['poster-palace-efab0122aec6.herokuapp.com', 'localhost']
 
