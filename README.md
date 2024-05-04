@@ -85,6 +85,9 @@ in the terminal, it did result in an empty file. Previously this file was filled
 The problem was not in the terminal,  but that I created a new workspace on Gitpod so I could use the PRO version provided by Code Institute. I didn't know that I had to install all requirements again, so I did using:
 ''' pip install -r requirements.txt ''' 
 
+- AWS bucket issue. Staticfiles were not uploading to the bucket. Due to some spelling mistakes like 'acces' instead of  'access' and naming the bucket policy instead of the bucket name itself, it was not working. When I changed those, the staticfiles where working. 
+Only the image links were incorrect, but that is another issue. 
+
 ## Deployment
 
 
