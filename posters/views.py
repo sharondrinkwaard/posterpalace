@@ -23,7 +23,7 @@ def all_posters(request):
         if 'request' in request.GET:
             query = request.GET['request']
             if not query:
-                message.error(request, 'Enter search criteria')
+                messages.error(request, 'Enter search criteria')
                 return redirect(reverse('posters'))
 
             # Queries in name OR description instead of both

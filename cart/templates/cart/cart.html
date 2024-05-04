@@ -8,7 +8,7 @@
     </div>  
     <div class="table-responsive-sm table-responsive-md">
         {% if shopping_items %}
-        <p>These items are in your shoppingcart</p>
+        <p>These items are in your shoppingcart:</p>
         <table class="table">
             <thead>
                 <tr>
@@ -22,22 +22,22 @@
                 <tr>
                     <th scope="row"><a href="{% url 'product_detail' article.product.id %}"><img class="" src="{{ article.product.image.url }}" alt=""></a></th>
                     <td>
-                        <p><strong><a href="{% url 'product_detail' article.product.id %}">{{ article.product.name }}</a></strong></p>
+                        <p><strong><a href="{% url 'product_detail' article.product.id %}">{{ article.poster.name }}</a></strong></p>
                     </td>
                     <td>
-                        <p>&euro;{{ article.product.price }}</p>
+                        <p>&euro;{{ article.poster.price }}</p>
                     </td>
                 <form class="form update-form form-control form-control-sm" id="update-form" method="POST" action="{% url 'edit_cart' article.article_id %}">
                     {% csrf_token %}
                     
-                    {% if article.product.has_sizes %}
+                    <!-- {% if article.product.has_sizes %}
                         <input type="hidden" name="size_option" value="{{ article.size }}">
-                    {% endif %}
+                    {% endif %} -->
                  </form>    
-                    <td>    
+                    <!-- <td>    
                         <a class="update-click btn btn-outline-dark btn-sm" id="update_{{ article.article_id }}" type="submit" onclick="document.getElementById('update-form').submit();">Update Cart</a>
                         <a class="remove-item btn btn-outline-dark btn-sm" id="remove_{{ article.article_id }}" data-product_size="{{ article.size }}" onclick="return confirm('Are you sure you want to delete this article?')">X</a>
-                    </td>
+                    </td> -->
                
                 </tr>
             {% endfor %}
@@ -56,7 +56,7 @@
         </table>
         {% else %}
             <p>You shopping cart is empty</p>
-            <a class="btn btn-custom btn-sm mt-3 mb-5" href="{% url 'products' %}">Check out some posters!</a>
+            <a class="btn btn-custom btn-sm mt-3 mb-5" href="{% url 'posters' %}">Check out some posters!</a>
         {% endif %}
     </div>
 {% endblock %}
