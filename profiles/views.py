@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import UserProfile
 from django.contrib import messages
-from payments.models import Order
+# from payments.models import Order
 from .forms import ProfileForm
 
 
@@ -19,12 +19,12 @@ def profiles(request):
             print('Update failed, try again')
     else:
         form = ProfileForm(instance=profile)
-    orders = profile.orders.all()
+    # orders = profile.orders.all()
 
     template = 'profiles/profiles.html'
     context = {
         'form': form,
-        'orders': orders,
+        # 'orders': orders,
         'on_profile_page': True
     }
 

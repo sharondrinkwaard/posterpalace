@@ -41,6 +41,8 @@
                             Posters
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'posters' %}">All Posters</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'posters' %}?category=architecture">Architecture</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'posters' %}?category=nature">Nature</a>
@@ -63,7 +65,7 @@
                 
                 {% if user.is_authenticated %}
                   <li class="nav-item">
-                    <a class="nav-link" href="">My Orders</a>
+                    <a class="nav-link" href="{% url 'profiles' %}">My Orders</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
