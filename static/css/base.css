@@ -140,8 +140,22 @@
 }
 
 
+/* Add to cart */
+.add-to-cart {
 
-   
+  &::after {
+    content: "\f07a";
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 18px;
+  }
+  
+}
 
 
 

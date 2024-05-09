@@ -38,3 +38,26 @@ def all_posters(request):
     }
 
     return render(request, 'posters/posters.html', context)
+
+def poster_detail(request, product_id):
+    """ A view to show individual product details """
+
+    poster = get_object_or_404(Product, pk=product_id)
+    form_color = ProductColor()
+
+    context = {
+        'poster': poster,
+        'form_color': form_color,
+        }
+
+    return render(request, 'posters/posters.html', context)
+
+class Color(View):
+    def post_color(self, request):
+            c = ProductSize(request.POST)
+            if c.is_valid():
+                add_c = c.save(commit=False)
+                add_c.save()
+                return redirect('redirect_url')
+            else:
+                render(request, 'posters.html', {'c': c})
