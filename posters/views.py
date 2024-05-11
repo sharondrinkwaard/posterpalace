@@ -39,11 +39,11 @@ def all_posters(request):
 
     return render(request, 'posters/posters.html', context)
 
-def poster_detail(request, product_id):
+def poster_detail(request, poster_id):
     """ A view to show individual product details """
 
-    poster = get_object_or_404(Product, pk=product_id)
-    form_color = ProductColor()
+    poster = get_object_or_404(Product, pk=poster_id)
+    form_color = PosterColor()
 
     context = {
         'poster': poster,
