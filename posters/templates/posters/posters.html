@@ -17,11 +17,11 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
                     {% if poster.image %}
-                       
+                    <a href="{% url 'poster_detail' poster.id %}"></a>
                             <img id="{{ poster.sku }}" class="img-poster card-img-top img-fluid rounded" src="{{ poster.image.url }}" alt="{{ poster.name }}" onclick="myFunction('{{poster.sku}} output=raw');">
                         </a>
                     {% else %}
-                        <a href="">
+                        <a href="{% url 'poster_detail' poster.id %}">
                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ poster.name }}">
                         </a>
                     {% endif %}
@@ -32,11 +32,6 @@
                             <div class="row">
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold">€{{ poster.price }}</p>
-                                    <!-- {% if poster.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ poster.rating }}</small>
-                                    {% else %}
-                                        <small class="text-muted">No Rating</small>
-                                    {% endif %} -->
                                     <form class="form" action="{% url 'add_to_cart' poster.id %}" method="POST">
                                         {% csrf_token %}
                                         {% if product.has_color %}

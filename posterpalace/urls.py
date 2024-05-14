@@ -25,4 +25,4 @@ urlpatterns = [
     path('posters/', include('posters.urls')),
     path('cart/', include('cart.urls')),
     path('profiles/', include('profiles.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

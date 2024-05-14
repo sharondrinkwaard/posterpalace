@@ -13,7 +13,7 @@ def all_posters(request):
     categories = None
     query = None
 
-    # Gets the category/search request and displays the correct products
+    # Gets the category/search request and displays the correct posters
     if request.GET:
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
@@ -40,9 +40,9 @@ def all_posters(request):
     return render(request, 'posters/posters.html', context)
 
 def poster_detail(request, poster_id):
-    """ A view to show individual product details """
+    """ A view to show individual poster details """
 
-    poster = get_object_or_404(Product, pk=poster_id)
+    poster = get_object_or_404(Poster, pk=poster_id)
     form_color = PosterColor()
 
     context = {
@@ -54,7 +54,7 @@ def poster_detail(request, poster_id):
 
 class Color(View):
     def post_color(self, request):
-            c = ProductSize(request.POST)
+            c = PosterSize(request.POST)
             if c.is_valid():
                 add_c = c.save(commit=False)
                 add_c.save()
