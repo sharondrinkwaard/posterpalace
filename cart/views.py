@@ -18,6 +18,7 @@ def add_to_cart(request, article_id):
         color = request.POST['color_option']
 
     request.session['cart'] = cart
+    print(request.session['cart'])
     return redirect(redirect_url)
 
 def delete_from_cart(request, article_id):

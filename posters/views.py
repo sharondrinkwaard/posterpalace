@@ -44,10 +44,12 @@ def poster_detail(request, poster_id):
 
     poster = get_object_or_404(Poster, pk=poster_id)
     form_color = PosterColor()
+    form_quantity = PosterQuantity()
 
     context = {
         'poster': poster,
         'form_color': form_color,
+        'form_quantity': form_quantity,
         }
 
     return render(request, 'posters/posters.html', context)

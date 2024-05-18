@@ -6,3 +6,9 @@ class ProductColor(forms.ModelForm):
     class Meta:
         model = Poster
         fields = ('color_option',)
+
+
+class PosterQuantity(forms.ModelForm):
+    class Meta:
+        model = Poster
+        fields = ('quantity',)

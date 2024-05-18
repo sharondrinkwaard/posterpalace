@@ -39,7 +39,7 @@ class Poster(models.Model):
         return self.name
 
 class QuantityColor(models.Model):
-    # Class which is used to create the form for the product_detail page
+    # Class which is used to create the form for the poster_detail page
     # posted_by = models.ForeignKey(User, on_delete=models.CASCADE)
     color_option = models.CharField(max_length=80, choices=COLOR_CHOICES, default='Color')
     
