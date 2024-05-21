@@ -7,19 +7,35 @@ def view_cart(request):
     """ Display the shopping cart """
     return render(request, 'cart/cart.html')
 
+
 def add_to_cart(request, article_id):
     """ Add articles to the shopping cart """
-    # quantity = int(request.POST.get('quantity'))
+    quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    cart = request.session.get('cart', {})
     color = None
 
     if 'color_option' in request.POST:
         color = request.POST['color_option']
+    cart = request.session.get('cart', {})
+
+    if color:
+        if article_id in list(cart.keys()):
+            if color in cart[article_id]['items_by_color'].keys():
+                cart[article_id]['items_by_color'][color] += quantity
+            else:
+                cart[article_id]['items_by_color'][color] = quantity
+        else: cart[article_id] = {'items_by_color': {color: quantity}}
+
+    else:
+        if article_id in list(cart.keys()):
+            cart[article_id] += quantity
+        else:
+            cart[article_id] = quantity
 
     request.session['cart'] = cart
     print(request.session['cart'])
     return redirect(redirect_url)
+
 
 def delete_from_cart(request, article_id):
     """ Delete article from shopping cart """

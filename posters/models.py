@@ -21,6 +21,14 @@ COLOR_CHOICES = (
     ('Black & White', 'Black & White'),
 )
 
+SIZE_CHOICES = (
+    ('XS', 'XS'),
+    ('S', 'S'),
+    ('M', 'M'),
+    ('L', 'L'),
+    ('XL', 'XL'),
+)
+
 
 class Poster(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
@@ -29,6 +37,8 @@ class Poster(models.Model):
     description = models.TextField()
     has_color = models.BooleanField(default=False, blank=True, null=True)
     color_option = models.CharField(max_length=15, blank=True, default='Color', choices=COLOR_CHOICES)
+    has_sizes = models.BooleanField(default=False, blank=True, null=True)
+    size_option = models.CharField(max_length=80, choices=SIZE_CHOICES, default='S')
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)

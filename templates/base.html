@@ -79,7 +79,14 @@
                   </li>
                 {% endif %}
                   <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i></a>
+                    <a class="nav-link" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i>
+                      <span>
+                        {% if total %}
+                          €{{ total|floatformat:2 }}
+                          {% else %}€0.00
+                        {% endif %}
+                      </span>
+                    </a>
                   </li>
                 </ul>
             </div>
@@ -114,16 +121,13 @@
         <h4>Customer Service</h4>
           <ul class="list-unstyled">
             <li>
-              <a href="#">My account</a>
+              <a href="{% if user.is_authenticated %}{% url 'profiles' %}{% else %}{% url 'account_login' %}{% endif %}">My account</a>
             </li>
             <li>
-              <a href="#">Payments</a>
+              <a href="{% url 'service' %}">Payments</a>
             </li>
             <li>
-              <a href="#">Delivery</a>
-            </li>
-            <li>
-              <a href="#">Returns</a>
+              <a href="">Contact</a>
             </li>
           </ul>
       </div>
@@ -132,13 +136,13 @@
         <h4>Poster Palace</h4>
         <ul class="list-unstyled">
           <li>
-            <a href="#">About Us</a>
+            <a href="{% url 'index' %}#about-us">About Us</a>
           </li>
           <li>
-            <a href="#">Terms & Conditions</a>
+            <a href="{% url 'service' %}">Terms & Conditions</a>
           </li>
           <li>
-            <a href="#">Privacy & Cookies</a>
+            <a href="{% url 'service' %}">Privacy & Cookies</a>
           </li>
           <li>
             <a href="#"></a>
@@ -148,9 +152,16 @@
   
       <div class="col">
         <h4>Follow Us!</h4>
-        <ul>
-          <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/posterpalace_codeinstitute/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/sharondrinkwaard/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          </li>
         </ul>
       </div>
     </div>

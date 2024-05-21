@@ -20,7 +20,8 @@ There are currently 4 categories named Nature, Architecture, People and Artistic
 ---
 The products I am using are digital products. They are not referred to a physical poster and need to be printed if required. 
 
-To load these posters onto my project, I created fixtures myself. I used the examples like mentioned in the walkthrough, but decided to create my own.  For this reason there are not thousands of images, but only the ones selected by me. 
+To load these posters onto my project, I first created fixtures myself. I used the examples like mentioned in the walkthrough, but decided to create my own.  For this reason there are not thousands of images, but only the ones selected by me. 
+However, after some time creating this project, I discovered ChatGPT and used this tool to update my fixtures to create a bigger database without having to put hours in this myself. 
 ### About Us
 ### Contact
 ### Terms & Conditions
@@ -99,6 +100,7 @@ Only the image links were incorrect, but that is another issue.
 - [Django Documentation]()
 - [Bootstrap Documentation]()
 - [Stripe Documentation]()
+- [ChatGPT]()
 
 ### Acknowledgments
 - Thank you Code Institute and mentor Daisy for guiding me through this project. 
