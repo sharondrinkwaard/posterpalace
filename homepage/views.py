@@ -8,4 +8,4 @@ def index(request):
 
 def service(request):
     """ A view to direct to the customer service page """
-    return render(request, 'service.html')
+    return render(request, 'homepage/service.html')

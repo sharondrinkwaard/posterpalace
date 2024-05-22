@@ -2,18 +2,21 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <div class="col-md-8 mt-5 offset-md-2">
-        <h2>Hello {% if user.is_authenticated %}{{ request.user.username }}{% else %} customer{% endif %},</h2>
-    </div>  
-
-    <div class="table-responsive-sm table-responsive-md">
+<div class="">
+    <div class="row">
+        <div class="col-md-8 mt-5 offset-md-2">
+            <h2>Hello {% if user.is_authenticated %}{{ request.user.username }}{% else %} customer{% endif %},</h2>
+        </div> 
+    </div>
+     
+<div class="row">
+    <div class="table-responsive-sm table-responsive-md offset-md-2">
         {% if shopping_items %}
         <p>These items are in your shoppingcart:</p>
         <table class="table">
             <thead>
                 <tr>
-                    <th  scope="col"></th>
+                    <th scope="col"></th>
                     <th class="text-uppercase" scope="col">Article</th>
                     <th class="text-uppercase" scope="col">Price</th>
                 </tr>
@@ -21,24 +24,25 @@
             <tbody>
             {% for article in shopping_items %}    
                 <tr>
-                    <th scope="row"><a href="{% url 'product_detail' article.product.id %}"><img class="" src="{{ article.product.image.url }}" alt=""></a></th>
+                    <th scope="row"><a href="{% url 'poster_detail' article.poster.id %}"><img class="img-fluid rounded" src="{{ article.poster.image.url }}" alt=""></a></th>
                     <td>
-                        <p><strong><a href="{% url 'product_detail' article.product.id %}">{{ article.poster.name }}</a></strong></p>
+                        <p><strong><a href="{% url 'poster_detail' article.poster.id %}">{{ article.poster.name }}</a></strong></p>
                     </td>
                     <td>
                         <p>&euro;{{ article.poster.price }}</p>
                     </td>
                 <form class="form update-form form-control form-control-sm" id="update-form" method="POST" action="{% url 'edit_cart' article.article_id %}">
                     {% csrf_token %}
-                    
-                    <!-- {% if article.product.has_sizes %}
-                        <input type="hidden" name="size_option" value="{{ article.size }}">
-                    {% endif %} -->
+                    {% if article.poster.has_color %}
+                        <input type="hidden" name="color_option" value="{{ article.color }}">
+                    {% endif %}
                  </form>    
-                    <!-- <td>    
+                    <td>  
+                        {% if article.poster.has_color %}
                         <a class="update-click btn btn-outline-dark btn-sm" id="update_{{ article.article_id }}" type="submit" onclick="document.getElementById('update-form').submit();">Update Cart</a>
-                        <a class="remove-item btn btn-outline-dark btn-sm" id="remove_{{ article.article_id }}" data-product_size="{{ article.size }}" onclick="return confirm('Are you sure you want to delete this article?')">X</a>
-                    </td> -->
+                        {% endif %}
+                        <a class="remove-item btn btn-outline-dark btn-sm" id="remove_{{ article.article_id }}" data-poster_size="{{ article.color }}" onclick="return confirm('Are you sure you want to delete this article?')">X</a>
+                    </td>
                
                 </tr>
             {% endfor %}
@@ -60,4 +64,34 @@
             <a class="btn btn-custom btn-sm mt-3 mb-5" href="{% url 'posters' %}">Check out some posters!</a>
         {% endif %}
     </div>
+</div>
+
+<script type="text/javascript">
+    // Update quantity on click
+    var form = document.getElementById("update-form");
+    
+    $('.update-click').click(function(e) {
+        console.log("update has been clicked")
+        var form = $(this).parent().prev().prev().prev('.update-form');
+        form.submit();
+    })
+    $('.update-click').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var color = $(this).data('color_-option');
+        var url = `/cart/delete_from_cart/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'color_option': color};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
 {% endblock %}
