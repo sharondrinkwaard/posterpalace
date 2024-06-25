@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.db.models import Q
+from .forms import PosterColor, PosterQuantity
 from .models import Poster, Category
 
 
@@ -52,7 +53,7 @@ def poster_detail(request, poster_id):
         'form_quantity': form_quantity,
         }
 
-    return render(request, 'posters/posters.html', context)
+    return render(request, 'posters/poster_detail.html', context)
 
 class Color(View):
     def post_color(self, request):

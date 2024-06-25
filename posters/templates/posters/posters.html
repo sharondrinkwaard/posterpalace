@@ -17,7 +17,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
                     {% if poster.image %}
-                    <a href="{% url 'poster_detail' poster.id %}"></a>
+                        <a href="{% url 'poster_detail' poster.id %}">
                             <img id="{{ poster.sku }}" class="img-poster card-img-top img-fluid rounded" src="{{ poster.image.url }}" alt="{{ poster.name }}" onclick="myFunction('{{poster.sku}} output=raw');">
                         </a>
                     {% else %}
@@ -26,24 +26,18 @@
                         </a>
                     {% endif %}
                         <div class="card-body pb-0">
-                            <p class="mb-0">{{ poster.name }}</p>
-                        </div>
-                        <div class="card-footer bg-white pt-0 border-0 text-left">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="lead mb-0 text-left font-weight-bold">€{{ poster.price }}</p>
-                                    <form class="form" action="{% url 'add_to_cart' poster.id %}" method="POST">
-                                        {% csrf_token %}
-                                        {{ form_quantity | crispy }}
-                                        <input type="number" name="quantity" value="1" min="1" required>
-                                        {% if poster.has_color %}
-                                            {{ form_color | crispy }}
-                                        {% endif %}
-                                        <input type="submit" class="add-to-cart" value="Add">
-                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    </form>
-                                </div>
-                            </div>
+                            <h5 class="card-title mb-0">{{ poster.name }}</h5>
+                            <p class="card-text">€{{ poster.price }}</p>
+                            <!-- <form class="form" action="{% url 'add_to_cart' poster.id %}" method="POST">
+                                {% csrf_token %}
+                                {{ form_quantity | crispy }}
+                                <input type="number" name="quantity" value="1" min="1" required>
+                                {% if poster.has_color %}
+                                    {{ form_color | crispy }}
+                                {% endif %}
+                                <input type="submit" class="add-to-cart" value="Add">
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </form> -->
                         </div>
                     </div>
                 </div>

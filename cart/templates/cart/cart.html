@@ -24,7 +24,11 @@
             <tbody>
             {% for article in shopping_items %}    
                 <tr>
-                    <th scope="row"><a href="{% url 'poster_detail' article.poster.id %}"><img class="img-fluid rounded" src="{{ article.poster.image.url }}" alt=""></a></th>
+                    <th scope="row">
+                        <a href="{% url 'poster_detail' article.poster.id %}">
+                            <img class="img-card rounded" src="{{ article.poster.image.url }}" alt="poster image">
+                        </a>
+                    </th>
                     <td>
                         <p><strong><a href="{% url 'poster_detail' article.poster.id %}">{{ article.poster.name }}</a></strong></p>
                     </td>

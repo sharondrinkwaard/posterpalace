@@ -23,6 +23,10 @@
     color: white;
 }
 
+.img-card {
+  width: 30px;
+}
+
 /* Gallery / image grid */
 .container {
     display: flex;
