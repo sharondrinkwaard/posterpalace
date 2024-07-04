@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.views import generic, View
 from posters.models import Poster
+from django.contrib import messages
 
 
 def view_cart(request):
@@ -21,14 +22,16 @@ def add_to_cart(request, article_id):
     if color:
         if article_id in list(cart.keys()):
             if color in cart[article_id]['items_by_color'].keys():
-                cart[article_id]['items_by_color'][color] += quantity
+                # cart[article_id]['items_by_color'][color] += quantity
+                messages.warning(request, f'Poster is already in your shopping cart')
             else:
                 cart[article_id]['items_by_color'][color] = quantity
         else: cart[article_id] = {'items_by_color': {color: quantity}}
 
     else:
         if article_id in list(cart.keys()):
-            cart[article_id] += quantity
+            # cart[article_id] += quantity
+            messages.warning(request, f'Poster is already in your shopping cart')
         else:
             cart[article_id] = quantity
 
@@ -50,7 +53,7 @@ def delete_from_cart(request, article_id):
         del cart[article_id]['items_by_color'][color]
         if not cart[article_id]['items_by_color']:
             cart.pop(article_id)
-        # messages.success(request, f'Removed size {color.upper()} {poster.name} from your cart')
+            # messages.success(request, f'Removed {poster.name} in {color.upper()}  from your cart')
     else:
         cart.pop(article_id)
         # messages.success(request, f'Removed {poster.name} from your cart')

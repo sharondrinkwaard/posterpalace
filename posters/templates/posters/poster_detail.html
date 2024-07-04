@@ -5,7 +5,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">  
                 <div class="image-container my-5">
                     {% if poster.image %}
                         <a href="{{ poster.image.url }}" target="_blank">
@@ -19,18 +19,22 @@
                 </div>
             </div>
 
+            <div class="col">
+                <h2 class="top">{{ poster.name}}</h2><small>€{{ poster.price }}</small>
+                <p>{{ poster.description }}</p>
+                <form class="form" action="{% url 'add_to_cart' poster.id %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="quantity" value="1" min="1" man="1"required>
+                {% if poster.has_color %}
+                    {{ form_color | crispy }}
+                {% endif %}
+                <input type="submit" class="add-to-cart" value="Add">
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </form>
+            </div>
         </div>
 
-        <form class="form" action="{% url 'add_to_cart' poster.id %}" method="POST">
-            {% csrf_token %}
-            {{ form_quantity | crispy }}
-            <input type="number" name="quantity" value="1" min="1" required>
-            {% if poster.has_color %}
-                {{ form_color | crispy }}
-            {% endif %}
-            <input type="submit" class="add-to-cart" value="Add">
-            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-        </form>
+        
     </div>
 </section>
 {% endblock %}

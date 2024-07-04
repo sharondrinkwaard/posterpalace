@@ -30,6 +30,7 @@ However, after some time creating this project, I discovered ChatGPT and used th
 
 ## Features left to implement
 - The images need a watermark
+- Don't allow to be more than 1 of the same posters in the shopping cart. Every item should be unique. 
 
 ## Products
 ---

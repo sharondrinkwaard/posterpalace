@@ -94,6 +94,21 @@
         </nav>
     </header>
 
+    {% if messages %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          {% for message in messages %}
+          <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+            {{ message | safe }}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    
+
 
     {% block title %}
     {% endblock %}
@@ -174,6 +189,13 @@
   </footer>
 
 {% block jscript %}
+  <script>
+    setTimeout(function () {
+        let messages = document.getElementById('msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 2500);
+  </script>
 {% endblock %}
 </body>
 </html>

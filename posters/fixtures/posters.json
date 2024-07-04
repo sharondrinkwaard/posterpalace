@@ -1,1 +1,132 @@
-[{"pk": 1, "model": "posters.poster", "fields": {"sku": "pp5001340155", "name": "Miesmuizer", "description": "Description fill in later", "price": 53.99, "category": 4, "rating": 4.6, "image_url": "https://www.pexels.com/nl-nl/foto/roze-en-paars-behang-1616403/", "image": "pexels-zaksheuskaya-1616403.jpg"}}, {"pk": 2, "model": "posters.poster", "fields": {"sku": "pp5001340166", "name": "Clazina", "description": "Description fill in later", "price": 19.99, "category": 3, "rating": 4.9, "image_url": "https://www.pexels.com/nl-nl/foto/mode-vrouw-kunst-model-6868084/", "image": "pexels-jeferson-gomes-6868084.jpg"}}, {"pk": 3, "model": "posters.poster", "fields": {"sku": "pp5001378955", "name": "Froukje Rozijn", "description": "Description fill in later", "price": 5103.99, "category": 2, "rating": 5.0, "image_url": "https://www.pexels.com/nl-nl/foto/roze-petaled-bloem-naast-witte-en-groene-kom-vol-met-kersen-35680/", "image": "pexels-pixabay-35680.jpg"}}, {"pk": 4, "model": "posters.poster", "fields": {"sku": "pp5001378955", "name": "Froukje Rozijn", "description": "Description fill in later", "price": 53.99, "category": 1, "rating": 5.0, "image_url": "https://www.pexels.com/nl-nl/foto/mensen-lopen-in-plaza-1548024/", "image": "pexels-monica-silvestre-1548024.jpg"}}]
+[{"pk": 11, "model": "posters.poster", "fields": {"sku": "pp5001340155", "name": "Miesmuizer", "description": "Description fill in later", "price": 53.99, "category": 4, "rating": 4.6, "image_url": "https://www.pexels.com/nl-nl/foto/roze-en-paars-behang-1616403/", "image": "pexels-zaksheuskaya-1616403.jpg"}}, {"pk": 12, "model": "posters.poster", "fields": {"sku": "pp5001340166", "name": "Clazina", "description": "Description fill in later", "price": 19.99, "category": 3, "rating": 4.9, "image_url": "https://www.pexels.com/nl-nl/foto/mode-vrouw-kunst-model-6868084/", "image": "pexels-jeferson-gomes-6868084.jpg"}}, {"pk": 13, "model": "posters.poster", "fields": {"sku": "pp5001378955", "name": "Froukje Rozijn", "description": "Description fill in later", "price": 5103.99, "category": 2, "rating": 5.0, "image_url": "https://www.pexels.com/nl-nl/foto/roze-petaled-bloem-naast-witte-en-groene-kom-vol-met-kersen-35680/", "image": "pexels-pixabay-35680.jpg"}}, {"pk": 14, "model": "posters.poster", "fields": {"sku": "pp5001378955", "name": "Froukje Rozijn", "description": "Description fill in later", "price": 53.99, "category": 1, "rating": 5.0, "image_url": "https://www.pexels.com/nl-nl/foto/mensen-lopen-in-plaza-1548024/", "image": "pexels-monica-silvestre-1548024.jpg"}},
+    {
+        "pk": 1,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp7064582391",
+            "name": "Eiffel Tower",
+            "description": "An iconic landmark of Paris, the Eiffel Tower stands tall as a symbol of French art, culture, and history.",
+            "price": 72,
+            "category": 1,
+            "image_url": "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg",
+            "image": "eiffel-tower.jpeg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp5286743028",
+            "name": "Golden Gate Bridge",
+            "description": "This famous bridge in San Francisco is renowned for its stunning architecture and engineering marvel.",
+            "price": 35,
+            "category": 1,
+            "image_url": "https://www.pexels.com/photo/golden-gate-bridge-208745/",
+            "image": "golden-gate-bridge.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp1654382907",
+            "name": "Mountainscape",
+            "description": "A breathtaking view of rugged mountains and serene landscapes, perfect for nature lovers.",
+            "price": 57,
+            "category": 2,
+            "image_url": "https://images.pexels.com/photos/225635/pexels-photo-225635.jpeg",
+            "image": "mountainscape.jpeg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp2439605482",
+            "name": "Sunset Beach",
+            "description": "Enjoy the tranquil beauty of a sunset over a calm beach, capturing the essence of nature's beauty.",
+            "price": 47,
+            "category": 2,
+            "image_url": "https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg",
+            "image": "sunset-beach.jpeg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp0748265340",
+            "name": "Esra",
+            "description": "A portrait of Esra, capturing her elegance and grace.",
+            "price": 65,
+            "category": 3,
+            "image_url": "https://www.pexels.com/photo/a-woman-in-white-sweater-leaning-on-a-railing-26833564/",
+            "image": "esra.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp0985437601",
+            "name": "Lilou",
+            "description": "An artistic portrayal of Lilou, highlighting her thoughtful demeanor.",
+            "price": 58,
+            "category": 3,
+            "image_url": "https://images.pexels.com/photos/936120/pexels-photo-936120.jpeg",
+            "image": "lilou.jpeg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp9384756120",
+            "name": "Abstract Art",
+            "description": "A stunning piece of abstract art that evokes emotion and sparks the imagination.",
+            "price": 82,
+            "category": 4,
+            "image_url": "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg",
+            "image": "art.jpeg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp7283740916",
+            "name": "Modern Sculpture",
+            "description": "A contemporary sculpture that challenges traditional art forms with its unique design.",
+            "price": 91,
+            "category": 4,
+            "image_url": "https://www.pexels.com/photo/modern-futuristic-statues-outdoors-7907019/",
+            "image": "modern-sculpture.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp2837461590",
+            "name": "Brooklyn Bridge",
+            "description": "The historic Brooklyn Bridge, an architectural feat connecting Manhattan and Brooklyn.",
+            "price": 42,
+            "category": 1,
+            "image_url": "https://www.pexels.com/photo/low-angle-view-photo-of-brooklyn-bridge-1402775/",
+            "image": "bridge.jpg"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp0937461857",
+            "name": "Willow Tree",
+            "description": "A peaceful depiction of a willow tree swaying gently in the breeze.",
+            "price": 30,
+            "category": 2,
+            "image_url": "https://www.pexels.com/photo/willow-tree-2927522/",
+            "image": "willow-tree.jpg"
+        }
+    }
+]
