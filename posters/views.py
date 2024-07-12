@@ -46,11 +46,19 @@ def poster_detail(request, poster_id):
     poster = get_object_or_404(Poster, pk=poster_id)
     form_color = PosterColor()
     form_quantity = PosterQuantity()
+    cart = request.session.get('cart', {})
+
+    in_cart = False
+    if poster_id in list(cart.keys()):
+        print(cart)
+        in_cart = True
 
     context = {
         'poster': poster,
         'form_color': form_color,
         'form_quantity': form_quantity,
+        'cart': cart,
+        'in_cart': in_cart,
         }
 
     return render(request, 'posters/poster_detail.html', context)

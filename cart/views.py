@@ -23,7 +23,7 @@ def add_to_cart(request, article_id):
         if article_id in list(cart.keys()):
             if color in cart[article_id]['items_by_color'].keys():
                 # cart[article_id]['items_by_color'][color] += quantity
-                messages.warning(request, f'Poster is already in your shopping cart')
+                messages.add_message(request, messages.warning, f'Poster is already in your shopping cart')
             else:
                 cart[article_id]['items_by_color'][color] = quantity
         else: cart[article_id] = {'items_by_color': {color: quantity}}
@@ -31,7 +31,7 @@ def add_to_cart(request, article_id):
     else:
         if article_id in list(cart.keys()):
             # cart[article_id] += quantity
-            messages.warning(request, f'Poster is already in your shopping cart')
+            messages.add_message(request, messages.INFO, 'Poster is already in your shopping cart')
         else:
             cart[article_id] = quantity
 
@@ -54,9 +54,11 @@ def delete_from_cart(request, article_id):
         if not cart[article_id]['items_by_color']:
             cart.pop(article_id)
             # messages.success(request, f'Removed {poster.name} in {color.upper()}  from your cart')
+            messages.success(request, f'Removed poster from your cart')
     else:
         cart.pop(article_id)
         # messages.success(request, f'Removed {poster.name} from your cart')
+        messages.success(request, f'Removed poster from your cart')
 
     request.session['cart'] = cart
     return HttpResponse(status=200)
@@ -75,7 +77,6 @@ def edit_cart(request, article_id):
 
     if color:
         if quantity > 0:
-            print('color exists and quantity is > 0')
             cart[article_id]['items_by_size'][color] = quantity
             # messages.success(request, f'Updated color {color.upper()} {poster.name} quantity to {cart[item_id]["items_by_color"][color]}')
         else:
