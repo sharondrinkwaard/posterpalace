@@ -52,13 +52,13 @@
             {% endfor %}
                 <tr>
                     <td colspan="4"></td>
-                    <td class="text-right" colspan="2"><strong> Shoppingcart total: &euro;{{ total|floatformat:2 }}</strong></td>
+                    <td class="text-right text-uppercase" colspan="2"><strong>total: &euro;{{ total|floatformat:2 }}</strong></td>
                 </tr>    
                 <tr>
                     <td colspan="4"></td>
                     <td>
-                        <a class="btn btn-custom" href="{% url 'posters' %}">Keep Shopping</a>
-                        <a class="btn btn-custom" href="">Checkout</a>
+                        <a id="link-btn" class="" href="{% url 'posters' %}">Keep Shopping</a>
+                        <a class="btn btn-succes" href="">Checkout</a>
                     </td>
                 </tr>  
             </tbody>
@@ -67,6 +67,11 @@
             <p>You shopping cart is empty</p>
             <a class="btn btn-custom btn-sm mt-3 mb-5" href="{% url 'posters' %}">Check out some posters!</a>
         {% endif %}
+
+    </div>
+    <div>
+        <a id="link-btn" class="" href="{% url 'posters' %}">Keep Shopping</a>
+        <a id="link-btn" class="" href="">Checkout</a>
     </div>
 </div>
 

@@ -21,7 +21,9 @@
 
             <div class="col">
                 <h2 class="top">{{ poster.name}}</h2><small>€{{ poster.price }}</small>
-                <h4>In cart? {{ in_cart }}</h4>
+                {% if in_cart %}
+                <p><strong>Item is in shoppingcart</strong></p>
+                {% endif %}
                 <p>{{ poster.description }}</p>
                 <form id="myForm" class="form" action="{% url 'add_to_cart' poster.id %}" method="POST">
                 {% csrf_token %}
@@ -29,7 +31,7 @@
                 {% if poster.has_color %}
                     {{ form_color | crispy }}
                 {% endif %}
-                <input type="submit" class="add-to-cart" value="Add">
+                <input type="submit" class="add-to-cart" value="Add" {% if in_cart %}disabled{% endif %}>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
             </div>
@@ -41,38 +43,4 @@
 {% endblock %}
 
 {% block jscript %}
-<script>
-    // get quantity integer from request POST
-    // const form = document.getElementById('myForm');
-    // form.addEventListener('submit', function(event) {
-    //     event.preventDefault(); // prevent form submission
-
-    //     // check if quantity is 1
-    //     const quantity = parseInt(form.elements.quantity.value);
-    //     if (quantity === 1) {
-    //         const button = document.getElementById('add_to_cart');
-    //         button.disabled = true;
-    //     } else {
-    //         const button = document.getElementById('add_to_cart');
-    //         button.disabled = false;
-    //     }
-    //     // submit the form
-    //     // form.submit();
-    // });
-
-//     let myForm = document.getElementById("myForm");
-//     myForm.addEventListener("submit", (e) => {
-//     e.preventDefault();
-
-    
-
-//     if (in_cart.value === 1) {
-//     alert("This item is already in your shopping cart!");
-//     } else {
-//     // perform operation with form input
-//     alert("This item has been added to your shopping cart!");
-//     myForm.submit();
-//   }
-// });
-</script>
 {% endblock %}

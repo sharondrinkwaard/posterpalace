@@ -77,7 +77,7 @@ def edit_cart(request, article_id):
 
     if color:
         if quantity > 0:
-            cart[article_id]['items_by_size'][color] = quantity
+            cart[article_id]['items_by_color'][color] = quantity
             # messages.success(request, f'Updated color {color.upper()} {poster.name} quantity to {cart[item_id]["items_by_color"][color]}')
         else:
             del cart[article_id]['items_by_color'][color]
