@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="">
+    <div class="row">
+        <div class="col-md-8 mt-5 offset-md-2">
+            <h2>Order summary: {{ poster_count }} item(s)</h2>
+        </div> 
+    </div>
+     
+<div class="row">
+    <div class="table-responsive-sm table-responsive-md offset-md-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th class="text-uppercase" scope="col">Article</th>
+                    <th class="text-uppercase" scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for article in shopping_items %}    
+                <tr>
+                    <th scope="row">
+                        <a href="{% url 'poster_detail' article.poster.id %}">
+                            <img class="img-card rounded" src="{{ article.poster.image.url }}" alt="poster image">
+                        </a>
+                    </th>
+                    <td>
+                        <p><strong><a href="{% url 'poster_detail' article.poster.id %}">{{ article.poster.name }}</a></strong></p>
+                    </td>
+                    <td>
+                        <p>&euro;{{ article.poster.price }}</p>
+                    </td>
+                </tr>
+            {% endfor %}
+                <tr>
+                    <td colspan="4"></td>
+                    <td class="text-right text-uppercase" colspan="2"><strong>total: &euro;{{ total|floatformat:2 }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>Fill out the form to complete your order</strong></p>
+        <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+            {% csrf_token %}
+            <fieldset class="rounded px-3 mb-5">
+                {{ order_form.first_name | as_crispy_field }}
+                {{ order_form.last_name | as_crispy_field }}
+                {{ order_form.email | as_crispy_field }}
+                {{ order_form.phone_number | as_crispy_field }}
+                <div class="form-check form-check-inline float-right mr-0">
+                    {% if user.is_authenticated %}
+                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                        <label class="form-check-label" for="id-save-info">Save this information to my profile</label>
+                    {% else %}
+                        <label class="form-check-label" for="id-save-info">
+                            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                            <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                        </label>
+                    {% endif %}
+                </div>
+            </fieldset>
+            <fieldset class="px-3">
+                <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                <!-- A Stripe card element will go here -->
+                <div class="mb-3" id="card-element"></div>
+                <!-- Used to display form errors -->
+                <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+            </fieldset>
+
+            <div class="submit-button text-right mt-5 mb-2">                    
+                <a href="{% url 'view_cart' %}" class="link-btn">Adjust cart</a>
+                <button id="submit-button" class="link-btn">Complete Order<i class="fas fa-lock"></i></button>
+                <p class="small text-danger my-0">
+                    <span class="icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </span>
+                    <span>Your card will be charged <strong>&euro;{{ total|floatformat:2 }}</strong></span>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
