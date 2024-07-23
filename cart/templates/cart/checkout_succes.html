@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="">
+    <div class="row">
+        <div class="col-md-8 mt-5 offset-md-2">
+            <h2>Thank you for you purchase!</h2>
+            <p>A confirmation email will be send to {{ order.email }}</p>
+        </div> 
+    </div>
+     
+<div class="row">
+    <div class="table-responsive-sm table-responsive-md offset-md-2">
+        {% if shopping_items %}
+        <p>These are the items your ordered:</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th class="text-uppercase" scope="col">Article</th>
+                    <th class="text-uppercase" scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for article in shopping_items %}    
+                <tr>
+                    <th scope="row">
+                        <a href="{% url 'poster_detail' article.poster.id %}">
+                            <img class="img-card rounded" src="{{ article.poster.image.url }}" alt="poster image">
+                        </a>
+                    </th>
+                    <td>
+                        <p><strong><a href="{% url 'poster_detail' article.poster.id %}">{{ article.poster.name }}</a></strong></p>
+                    </td>
+                    <td>
+                        <p>&euro;{{ article.poster.price }}</p>
+                    </td>
+            {% endfor %}
+
+                <tr>
+                    <td colspan="4"></td>
+                    <td class="text-right text-uppercase" colspan="2"><strong>total: &euro;{{ total|floatformat:2 }}</strong></td>
+                </tr>    
+                <tr>
+                    <td colspan="4"></td>
+                </tr>  
+            </tbody>
+        </table>
+        {% endif %}
+
+    </div>
+    <div>
+        <a id="link-btn" class="" href="{% url 'posters' %}">Keep Shopping</a>
+    </div>
+</div>
+{% endblock %}
