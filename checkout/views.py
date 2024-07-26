@@ -20,7 +20,6 @@ def checkout(request):
             'last_name': request.POST['last_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
-            'date': request.POST['date'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -50,8 +49,8 @@ def checkout(request):
                     ))
                     order.delete()
                     return redirect(reverse('view_cart'))
-            request.session['save_info'] = save_info in request.POST
-            return redirect(reverse('checkout_succes', args=[order.order_number]))
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')

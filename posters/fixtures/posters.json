@@ -1,4 +1,4 @@
-[{"pk": 11, "model": "posters.poster", "fields": {"sku": "pp5001340155", "name": "Miesmuizer", "description": "Description fill in later", "price": 53.99, "category": 4, "rating": 4.6, "image_url": "https://www.pexels.com/nl-nl/foto/roze-en-paars-behang-1616403/", "image": "pexels-zaksheuskaya-1616403.jpg"}}, {"pk": 12, "model": "posters.poster", "fields": {"sku": "pp5001340166", "name": "Clazina", "description": "Description fill in later", "price": 19.99, "category": 3, "rating": 4.9, "image_url": "https://www.pexels.com/nl-nl/foto/mode-vrouw-kunst-model-6868084/", "image": "pexels-jeferson-gomes-6868084.jpg"}}, {"pk": 13, "model": "posters.poster", "fields": {"sku": "pp5001378955", "name": "Froukje Rozijn", "description": "Description fill in later", "price": 5103.99, "category": 2, "rating": 5.0, "image_url": "https://www.pexels.com/nl-nl/foto/roze-petaled-bloem-naast-witte-en-groene-kom-vol-met-kersen-35680/", "image": "pexels-pixabay-35680.jpg"}}, {"pk": 14, "model": "posters.poster", "fields": {"sku": "pp5001378955", "name": "Froukje Rozijn", "description": "Description fill in later", "price": 53.99, "category": 1, "rating": 5.0, "image_url": "https://www.pexels.com/nl-nl/foto/mensen-lopen-in-plaza-1548024/", "image": "pexels-monica-silvestre-1548024.jpg"}},
+[
     {
         "pk": 1,
         "model": "posters.poster",
@@ -127,6 +127,62 @@
             "category": 2,
             "image_url": "https://www.pexels.com/photo/willow-tree-2927522/",
             "image": "willow-tree.jpg"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp5001340155",
+            "name": "Miesmuizer",
+            "description": "This piece of art captivates the essence of abstract expressionism, combining vivid colors and dynamic shapes to evoke deep emotional responses. The interplay of light and shadow, along with the bold brushstrokes, creates a mesmerizing visual experience that draws the viewer into a contemplative state.",
+            "price": 53.99,
+            "category": 4,
+            "rating": 4.6,
+            "image_url": "https://www.pexels.com/nl-nl/foto/roze-en-paars-behang-1616403/",
+            "image": "pexels-zaksheuskaya-1616403.jpg"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp5001340166",
+            "name": "Clazina",
+            "description": "An adventurous girl exploring new horizons, always curious and brave, embracing life's challenges with a fearless heart.",
+            "price": 19.99,
+            "category": 3,
+            "rating": 4.9,
+            "image_url": "https://www.pexels.com/nl-nl/foto/mode-vrouw-kunst-model-6868084/",
+            "image": "pexels-jeferson-gomes-6868084.jpg"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp5001378955",
+            "name": "Froukje Rozijn",
+            "description": "A famous flavorful raisin known for its rich, sweet taste and perfect texture, loved by all who try it.",
+            "price": 5103.99,
+            "category": 2,
+            "rating": 5.0,
+            "image_url": "https://www.pexels.com/nl-nl/foto/roze-petaled-bloem-naast-witte-en-groene-kom-vol-met-kersen-35680/",
+            "image": "pexels-pixabay-35680.jpg"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "posters.poster",
+        "fields": {
+            "sku": "pp5001378955",
+            "name": "Monica",
+            "description": "A stunning architectural masterpiece, blending modern design with classic elegance. This building features soaring walls, intricate details, and breathtaking views.",
+            "price": 53.99,
+            "category": 1,
+            "rating": 5.0,
+            "image_url": "https://www.pexels.com/nl-nl/foto/mensen-lopen-in-plaza-1548024/",
+            "image": "pexels-monica-silvestre-1548024.jpg"
         }
     }
 ]
