@@ -10,19 +10,19 @@ def shopping_content(request):
     poster_count = 0
     cart = request.session.get('cart', {})
 
-    for article_id, item_data in cart.items():
-        if isinstance(item_data, int):
+    for article_id, article_data in cart.items():
+        if isinstance(article_data, int):
             poster = get_object_or_404(Poster, pk=article_id)
-            total += item_data * poster.price
-            poster_count += item_data
+            total += article_data * poster.price
+            poster_count += article_data
             shopping_items.append({
                 'article_id': article_id,
-                'quantity': item_data,
+                'quantity': article_data,
                 'poster': poster,
             })
         else:
             poster = get_object_or_404(Poster, pk=article_id)
-            for color, quantity in item_data['items_by_color'].items():
+            for color, quantity in article_data['items_by_color'].items():
                 total += quantity * poster.price
                 poster_count += quantity
                 shopping_items.append({
