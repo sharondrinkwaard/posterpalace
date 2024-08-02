@@ -36,6 +36,7 @@ def add_to_cart(request, article_id):
             cart[article_id] = quantity
 
     request.session['cart'] = cart
+    # DELETE BEFORE SUBMISSION
     print(request.session['cart'])
     return redirect(redirect_url)
 
