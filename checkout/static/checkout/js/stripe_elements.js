@@ -60,8 +60,7 @@ form.addEventListener('submit', function(ev) {
             payment_method: {
                 card: card,
                 billing_details: {
-                    firstName: $.trim(form.first_name.value),
-                    lastName: $.trim(form.last_name.value),
+                    name: $.trim(form.first_name.value, form.last_name.value),
                     phone: $.trim(form.phone_number.value),
                     email: $.trim(form.email.value),
                 }
@@ -83,7 +82,7 @@ form.addEventListener('submit', function(ev) {
                 }
             }
         });
-     }).fail(function () {
+    }).fail(function () {
          location.reload();
-     })
+    })
 });

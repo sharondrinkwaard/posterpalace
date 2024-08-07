@@ -14,8 +14,8 @@ class Order(models.Model):
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    # stripe_pid = models.CharField(max_length=260, null=False, blank=False, default='')
-    # original_cart = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=260, null=False, blank=False, default='')
+    original_cart = models.TextField(null=False, blank=False, default='')
 
     def _create_order_number(self):
         """ Creates a unique order number using UUID """
