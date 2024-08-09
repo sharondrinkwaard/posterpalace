@@ -5,9 +5,10 @@ from django.db.models.signals import post_save
 
 
 class UserProfile(models.Model):
-    ''' A user profile for maintaining default info and order history'''
+    ''' A user profile for saved info and order history'''
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_email = models.CharField(max_length=80, null=True, blank=True)
+    default_phone_number = models.CharField(max_length=20, null=False, blank=False)
 
     def __str__(self):
         return self.user.username

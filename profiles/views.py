@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import UserProfile
 from django.contrib import messages
-# from payments.models import Order
-from .forms import ProfileForm
+from checkout.models import Order
+from .forms import UserProfileForm
 
 
 def profiles(request):
@@ -10,7 +10,7 @@ def profiles(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
-        form = ProfileForm(request.POST, instance=profile)
+        form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
             # messages.success(request, 'Profile updated')
@@ -18,14 +18,25 @@ def profiles(request):
             # messages.error(request, 'Update failed. Try again')
             print('Update failed, try again')
     else:
-        form = ProfileForm(instance=profile)
-    # orders = profile.orders.all()
+        form = UserProfileForm(instance=profile)
+    orders = profile.orders.all()
 
     template = 'profiles/profiles.html'
     context = {
         'form': form,
-        # 'orders': orders,
+        'orders': orders,
         'on_profile_page': True
+    }
+
+    return render(request, template, context)
+
+
+def order_history(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
+        'from_profile': True,
     }
 
     return render(request, template, context)
