@@ -7,6 +7,8 @@ from django.db.models.signals import post_save
 class UserProfile(models.Model):
     ''' A user profile for saved info and order history'''
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    default_first_name = models.CharField(max_length=50, null=False, blank=False)
+    default_last_name = models.CharField(max_length=50, null=False, blank=False)
     default_email = models.CharField(max_length=80, null=True, blank=True)
     default_phone_number = models.CharField(max_length=20, null=False, blank=False)
 

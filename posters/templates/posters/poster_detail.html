@@ -31,7 +31,7 @@
                 {% if poster.has_color %}
                     {{ form_color | crispy }}
                 {% endif %}
-                <input type="submit" class="add-to-cart" value="Add" {% if in_cart %}disabled{% endif %}>
+                <input class="" type="submit" class="add-to-cart" value="Add" {% if in_cart %}disabled{% endif %}>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
             </div>

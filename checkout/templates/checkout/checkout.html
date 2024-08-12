@@ -79,12 +79,7 @@
             <div class="submit-button text-right mt-5 mb-2">                    
                 <a href="{% url 'view_cart' %}" class="link-btn">Adjust cart</a>
                 <button id="submit-button" class="link-btn">Complete Order</button>
-                <p class="small text-danger my-0">
-                    <span class="icon">
-                        <i class="fas fa-exclamation-circle"></i>
-                    </span>
-                    <span>Your card will be charged <strong>&euro;{{ total|floatformat:2 }}</strong></span>
-                </p>
+                <p class="small text-danger my-0">Your card will be charged <strong>&euro;{{ total|floatformat:2 }}</strong></p>
             </div>
         </form>
     </div>

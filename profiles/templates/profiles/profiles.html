@@ -47,18 +47,14 @@
         <div class="row">
             <div class="col">
                 <h3 id="personal-info">Your personal information</h3>
-                <form class="mt-3" action="{% url 'profiles' %}" method="POST" id="profile-update-form">
+                <form class="" action="{% url 'profiles' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
-                    <!-- CREATE ORDER FORM WITH DEFAULTS AND NOT USE THIS ONE BELOW -->
-                    {{ order_form.first_name }}
-                    {{ order_form.last_name }}
-                    {{ order_form.email }}
-                    {{ order_form.phone_number }}
-                    <button class="btn btn-custom float-right">Update Information</button>
+                    {{ form | crispy }}
+                    <button id="link-btn" class="float-right">Update Information</button>
                 </form>
             </div>
         </div>
-        <div class="table-responsive">
+    </div>
 </section>
 {% endblock %}
 
