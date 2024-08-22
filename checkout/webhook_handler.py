@@ -4,7 +4,9 @@ from posters.models import Poster
 from profiles.models import UserProfile
 from django.template.loader import render_to_string
 from django.core.mail import send_mail, EmailMessage
+from django.core.files.storage import default_storage
 from django.conf import settings
+
 import json
 import time
 
@@ -36,8 +38,10 @@ class StripeWH_Handler:
         for lineitem in order.lineitems.all():
             poster = lineitem.poster
             if poster.image:
-                print(f"Attaching file: {poster.image.path}")
-                # email.attach_file(poster.image.path)
+                # Open the file from AWS S3 bucket using default_storage
+                with default_storage.open(poster.image.name, 'rb') as file_obj:
+                    email.attach(poster.image.name, file_obj.read(), poster.image.file.content_type)
+    
         try:
             email.send(fail_silently=False)
         except Exception as e:
