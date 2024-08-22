@@ -1,28 +1,56 @@
 from django.http import HttpResponse
 from .models import Order, OrderLineItem
 from posters.models import Poster
+from profiles.models import UserProfile
+from django.template.loader import render_to_string
+from django.core.mail import send_mail, EmailMessage
+from django.conf import settings
 import json
 import time
 
 
 class StripeWH_Handler:
-    """Handle Stripe webhooks"""
+    '''Handle Stripe webhooks'''
 
     def __init__(self, request):
         self.request = request
 
+    def _send_confirmation_email(self, order):
+        '''send user a confirmation email after ordering'''
+        customer_email = order.email
+        subject = render_to_string(
+            'checkout/confirmation_email/confirmation_email_subject.txt',
+            {'order': order})
+        body = render_to_string(
+            'checkout/confirmation_email/confirmation_email_body.txt',
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+        
+        email = EmailMessage(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [customer_email]
+        )
+        # for loop to iterate over all lineitems.
+        # Then get the image and attatch it to the email
+        for lineitem in order.lineitems.all():
+            poster = lineitem.poster
+            if poster.image:
+                print(f"Attaching file: {poster.image.path}")
+                # email.attach_file(poster.image.path)
+        try:
+            email.send(fail_silently=False)
+        except Exception as e:
+            print(f"Error sending email: {e}")
+
     def handle_event(self, event):
-        """
-        Handle a generic/unknown/unexpected webhook event
-        """
+        '''Handle a generic/unknown/unexpected webhook event'''
         return HttpResponse(
             content=f'unhandled Webhook received: {event["type"]}',
             status=200)
     
     def handle_payment_intent_succeeded(self, event):
-        """
-        Handle the payment_intent.succeeded webhook from Stripe
-        """
+        '''Handle the payment_intent.succeeded webhook from Stripe'''
         intent = event.data.object
         pid = intent.id
         cart = intent.metadata.cart
@@ -35,7 +63,7 @@ class StripeWH_Handler:
         billing_details = stripe_charge.billing_details
         total = round(stripe_charge.amount / 100, 2)
 
-        # Update profile information if save_info was checked
+        # Update profile information if it needs to be saved
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
@@ -77,6 +105,7 @@ class StripeWH_Handler:
                 order = Order.objects.create(
                     first_name__iexact=billing_details.name,
                     last_name__iexact=billing_details.name,
+                    user_profile=profile,
                     email__iexact=billing_details.email,
                     phone_number__iexact=billing_details.phone,
                     total=total,

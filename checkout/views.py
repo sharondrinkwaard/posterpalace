@@ -70,7 +70,7 @@ def checkout(request):
                             order_line_item.save()
                 except Poster.DoesNotExist:
                     messages.error(request, (
-                        'This product is not available anymore. Contact us for more info'
+                        'This product is not available. Contact us for more info'
                     ))
                     order.delete()
                     return redirect(reverse('view_cart'))
@@ -107,14 +107,14 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
-    """ Handle successful checkouts """
+    ''' Handle successful checkouts '''
 
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
-
+    # Attach the order to the profile
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         order.user_profile = profile

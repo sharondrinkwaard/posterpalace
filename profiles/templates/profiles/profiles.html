@@ -14,27 +14,35 @@
                 <h2 class="logo-font mb-4">Hello <strong>{{user.username}}</strong></h2>
                 <hr>
                     <h3 id="previous-orders">Your order history:</h3>
-                    <!-- if statement orders? -->
                      {% if user.userprofile.orders %}
                     <table>
                         <thead>
                             <tr>
-                                <th>Order Number</th>
-                                <th>Poster Name</th>
-                                <th>Order Date</th>
-                                <th>Order Total</th>
+                                <th scope="col">Order Number</th>
+                                <th scope="col">Poster Name</th>
+                                <th scope="col">Order Date</th>
+                                <th scope="col">Order Total</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for order in orders %}
                             <tr>
-                                <td>{{ order.order_number }}</td>
-                                {% for item in order.lineitems.all %}
-
-                                <td>{{ item.poster.name }}</td>
-                                {% endfor %}
+                               
+                                <td>{{ order.order_number|truncatechars:10 }}</td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        {% for item in order.lineitems.all %}
+                                        <li>
+                                            {{ item.poster.name }}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
                                 <td>{{ order.date}}</td>
                                 <td>{{ order.order_total }}</td>
+                                
+                                
+                                
                             </tr>
                             {% endfor %}
                         </tbody>
