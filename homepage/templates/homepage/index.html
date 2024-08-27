@@ -30,19 +30,19 @@
         </div>
         <div class="box rounded">
           <a href="{% url 'posters' %}?category=nature">
-            <img src="/static/images/red_trees.jpg">
+            <img src="{{ MEDIA_URL }}red_trees.jpg">
           </a>
           <span>Nature</span>
         </div>
         <div class="box rounded">
           <a href="{% url 'posters' %}?category=people">
-            <img src="/static/images/people.jpg">
+            <img src="{{ MEDIA_URL }}people.jpg">
           </a>
           <span>People</span>
         </div>
         <div class="box rounded">
           <a href="{% url 'posters' %}?category=artistic">
-            <img src="/static/images/art_2.jpg">
+            <img src="{{ MEDIA_URL }}art_2.jpg">
           </a>
           <span>Artistic</span>  
         </div>
@@ -70,7 +70,7 @@
 <section>
   <div class="container-fluid">
     <div class="container">
-
+      {% include 'incl/_contact_form.html' %}
     </div>
   </div>
 </section>

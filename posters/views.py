@@ -20,6 +20,8 @@ def all_posters(request):
             categories = request.GET['category'].split(',')
             posters = posters.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+        else:
+            categories = []
 
         if 'request' in request.GET:
             query = request.GET['request']
@@ -32,10 +34,13 @@ def all_posters(request):
             # Filters out the queries so only queries are displayed
             posters = posters.filter(queries)
 
+    else:
+        categories = []
+
     context = {
         'posters': posters,
         'search_request': query,
-        'current_cat': categories,
+        'current_cat': categories if categories else [{'friendly_name': ''}],
     }
 
     return render(request, 'posters/posters.html', context)
