@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.views import generic, View
 from posters.models import Poster
 from django.contrib import messages
-
+from django.urls import reverse
 
 def view_cart(request):
     """ Display the shopping cart """
@@ -22,22 +22,21 @@ def add_to_cart(request, article_id):
     if color:
         if article_id in list(cart.keys()):
             if color in cart[article_id]['items_by_color'].keys():
-                # cart[article_id]['items_by_color'][color] += quantity
-                messages.add_message(request, messages.warning, f'Poster is already in your shopping cart')
+                messages.success(request, f'Poster added to your shopping cart. 1')
             else:
                 cart[article_id]['items_by_color'][color] = quantity
+                messages.success(request, f'Poster added to your shopping cart. 2')
         else: cart[article_id] = {'items_by_color': {color: quantity}}
 
     else:
         if article_id in list(cart.keys()):
-            # cart[article_id] += quantity
-            messages.add_message(request, messages.INFO, 'Poster is already in your shopping cart')
+            messages.success(request, f'Poster added to your shopping cart. 3')
         else:
             cart[article_id] = quantity
+            messages.success(request, f'Poster added to your shopping cart. 4')
 
     request.session['cart'] = cart
-    # DELETE BEFORE SUBMISSION
-    print(request.session['cart'])
+    messages.success(request, f'Poster added to your shopping cart. 5')
     return redirect(redirect_url)
 
 
@@ -54,11 +53,9 @@ def delete_from_cart(request, article_id):
         del cart[article_id]['items_by_color'][color]
         if not cart[article_id]['items_by_color']:
             cart.pop(article_id)
-            # messages.success(request, f'Removed {poster.name} in {color.upper()}  from your cart')
             messages.success(request, f'Removed poster from your cart')
     else:
         cart.pop(article_id)
-        # messages.success(request, f'Removed {poster.name} from your cart')
         messages.success(request, f'Removed poster from your cart')
 
     request.session['cart'] = cart
@@ -71,7 +68,7 @@ def edit_cart(request, article_id):
     poster = get_object_or_404(Poster, pk=article_id)
     quantity = int(request.POST.get('quantity'))
     color = None
-
+    # COLOR OPTION IS CURRENTLY NOT IN USE
     if 'color_option' in request.POST:
         color = request.POST['color_option']
     cart = request.session.get('cart', {})
@@ -88,10 +85,9 @@ def edit_cart(request, article_id):
     else:
         if quantity > 0:
             cart[article_id] = quantity
-            # messages.success(request, f'Updated {poster.name} quantity to {cart[article_id]}')
         else:
             cart.pop(article_id)
-            # messages.success(request, f'Removed {poster.name} from your cart')
+            messages.success(request, f'Removed from your cart')
 
     request.session['cart'] = cart
     return redirect(reverse('cart.html'))

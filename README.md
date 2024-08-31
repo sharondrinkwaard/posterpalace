@@ -111,6 +111,7 @@ SCREENSHOT
 - Summernote 
 - Pillow
 - Crispy forms
+- Flask
 - Stripe Payments
 
 ## Agile

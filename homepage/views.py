@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse
 from django.views import generic, View
 from django.core.mail import send_mail
-from .forms import ContactForm
+from .forms import ContactForm, NewsletterForm
 from django.conf import settings
 from django.contrib import messages
+import mailchimp_marketing as MailchimpMarketing
+from mailchimp_marketing.api_client import ApiClientError
 
 
 def index(request):
@@ -48,5 +51,31 @@ def contact_view(request):
 
     else:
         form = ContactForm()
+
+    return render(request, 'homepage/index.html', {'form': form})
+
+
+# mailchimp
+client = MailchimpMarketing.Client()
+client.set_config({
+    "api_key": MAILCHIMP_API_KEY,
+    "server": MAILCHIMP_SERVER_PREFIX
+})
+
+def subscribe_view(request):
+    if request.method == "POST":
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            try:
+                response = client.lists.add_list_member(MAILCHIMP_AUDIENCE_ID, {
+                    "email_address": email,
+                    "status": "subscribed"
+                })
+                return HttpResponse("Thank you for subscribing!")
+            except ApiClientError as error:
+                return HttpResponse(f"An error occurred: {error.text}")
+    else:
+        form = NewsletterForm()
 
     return render(request, 'homepage/index.html', {'form': form})
