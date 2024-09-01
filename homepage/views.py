@@ -58,8 +58,8 @@ def contact_view(request):
 # mailchimp
 client = MailchimpMarketing.Client()
 client.set_config({
-    "api_key": MAILCHIMP_API_KEY,
-    "server": MAILCHIMP_SERVER_PREFIX
+    "api_key": settings.MAILCHIMP_API_KEY,
+    "server": settings.MAILCHIMP_SERVER_PREFIX
 })
 
 def subscribe_view(request):
