@@ -30,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', 'd3v3l0pment')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-sharondrink-posterpalac-a99v181rx8i.ws.codeinstitute-ide.net', 'poster-palace-efab0122aec6.herokuapp.com', 'localhost']
 
@@ -87,6 +87,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'cart.contexts.shopping_content',
+                'homepage.context_processors.newsletter_form',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -219,10 +220,15 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
-# Mailchimp
+# Mailchimp - currently not in use due to a dependency conflict
+# Using MailerLite instead, see below.
 MAILCHIMP_API_KEY = os.getenv('MAILCHIMP_API_KEY', '')
 MAILCHIMP_SERVER_PREFIX = os.getenv('MAILCHIMP_SERVER_PREFIX', '')
 MAILCHIMP_AUDIENCE_ID = os.getenv('MAILCHIMP_AUDIENCE_ID', '')
+
+# MailerLite
+MAILERLITE_API_KEY = os.getenv('MAILERLITE_API_KEY', '')
+MAILERLITE_GROUP_ID = os.getenv('MAILERLITE_GROUP_ID', '')
 
 
 if 'DEVELOPMENT' in os.environ:

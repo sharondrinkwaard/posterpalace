@@ -111,8 +111,10 @@ SCREENSHOT
 - Summernote 
 - Pillow
 - Crispy forms
-- Flask
+- Flask (not needed anymore, but still installed, for features left to implement.)
 - Stripe Payments
+- MailChimp (not in use anymore, because it caused a dependency conflict)
+- MailerLite
 
 ## Agile
 ---
@@ -154,6 +156,7 @@ The problem was not in the terminal,  but that I created a new workspace on Gitp
 ### Unsolved Bugs
 - AWS bucket issue. Staticfiles were not uploading to the bucket. Due to some spelling mistakes like 'acces' instead of  'access' and naming the bucket policy instead of the bucket name itself, it was not working. When I changed those, the staticfiles where working. 
 Only the image links were incorrect, but that is another issue. 
+- <strong>Dependency conflict when installing MailChimp.</strong> I currently cannot install the newest version of MailChimp, because it causes a dependency conflict with boto, botocore, request and twine installations. I checked this using 'pip3 check' in the terminal. I can use an older version of MailChimp, but with the older version I cannot use MailChimp for the newsleter form. To use the API of MailChimp, I need the newest version. All code needed to install MailChimp is still in the repository as I am trying to solve it and I don't want to lose the API keys and ID's.
 
 ## AI and Copilot
 

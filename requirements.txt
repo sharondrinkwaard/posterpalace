@@ -18,7 +18,8 @@ gunicorn==20.0.4
 idna==2.8
 itsdangerous==2.2.0
 jmespath==0.9.5
-mailchimp-marketing==3.0.70
+mailchimp-marketing==3.0.80
+mailerlite-api-python==0.10.0
 oauthlib==3.1.0
 Pillow==7.0.0
 psycopg2-binary==2.8.5
