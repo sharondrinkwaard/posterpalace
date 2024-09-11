@@ -70,7 +70,6 @@ def subscribe_view(request):
 
             # Fetch all groups from the updated MailerLite API
             api_key = settings.MAILERLITE_API_KEY  # Use your API key from settings
-            print(f"MailerLite API Key: {api_key}")  # Debugging line
             headers = {
                 'Content-Type': 'application/json',
                 'Authorization': f'Bearer {api_key}',  # Bearer token authentication
@@ -81,12 +80,10 @@ def subscribe_view(request):
 
             if response.status_code == 200:
                 groups = response.json()
-                print(groups)  # Print all groups with their corresponding IDs in the console
                 
                 # Assuming you want to use the first group in the list (you can change this logic)
                 if groups:
                     group_id = groups[0]['id']
-                    print(f"Using Group ID: {group_id}")
 
                     # Prepare subscriber data
                     data = {
