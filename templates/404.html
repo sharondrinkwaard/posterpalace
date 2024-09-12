@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block content %}
-<div id="notfound" class="container-fluid">
-    <div class="notfound container">
-        <div class="notfound-404">
-            <h1>4<span></span>4</h1>
+<div class="container-fluid">
+    <div id="block-middle" class="container">
+        <div>
+            <h1>404</h1><hr>
         </div>
         <h2>Oops! Page Cannot Be Found</h2>
         <p>Sorry but the page you are looking for does not exist, has been removed, or is temporarily unavailable</p>
-        <a href="{% url 'homepage' %}">Back to homepage</a>
+        <a class="link-btn" href="{% url 'homepage' %}">Back to homepage</a>
     </div>
 </div>
 {% endblock %}

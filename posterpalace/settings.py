@@ -117,6 +117,8 @@ MESSAGE_TAGS = {
         messages.ERROR: 'alert-danger',
     }
 
+# SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
@@ -228,7 +230,7 @@ MAILCHIMP_AUDIENCE_ID = os.getenv('MAILCHIMP_AUDIENCE_ID', '')
 
 # MailerLite
 MAILERLITE_API_KEY = os.getenv('MAILERLITE_API_KEY', '')
-MAILERLITE_GROUP_ID = os.getenv('MAILERLITE_GROUP_ID', '')
+MAILERLITE_GROUP_ID = 132165118227121857
 
 
 if 'DEVELOPMENT' in os.environ:

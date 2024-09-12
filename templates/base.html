@@ -61,7 +61,9 @@
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="{% url 'service' %}#terms-conditions">Terms&Conditions</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="{% url 'service' %}#privacy-cookies">Cookies</a>
+                          <a class="dropdown-item" href="{% url 'service' %}#privacy-cookies">Privacy&Cookies</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{% url 'contact' %}#contact">Contact</a>
                       </div>
                   </li>
                 
@@ -143,10 +145,10 @@
               <a href="{% if user.is_authenticated %}{% url 'profiles' %}{% else %}{% url 'account_login' %}{% endif %}">My account</a>
             </li>
             <li>
-              <a href="{% url 'service' %}">Payments</a>
+              <a href="{% url 'service' %}#payments">Payments</a>
             </li>
             <li>
-              <a href="">Contact</a>
+              <a href="{% url 'contact' %}#contact">Contact</a>
             </li>
           </ul>
       </div>
@@ -158,10 +160,10 @@
             <a href="{% url 'index' %}#about-us">About Us</a>
           </li>
           <li>
-            <a href="{% url 'service' %}">Terms & Conditions</a>
+            <a href="{% url 'service' %}#terms-conditions">Terms & Conditions</a>
           </li>
           <li>
-            <a href="{% url 'service' %}">Privacy & Cookies</a>
+            <a href="{% url 'service' %}#privacy-cookies">Privacy & Cookies</a>
           </li>
           <li>
             <a href="#"></a>
