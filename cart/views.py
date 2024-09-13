@@ -90,5 +90,5 @@ def edit_cart(request, article_id):
             messages.success(request, f'Removed poster from your cart')
 
     request.session['cart'] = cart
-    return redirect(reverse('cart.html'))
+    return render(request, 'cart.html', {'cart': cart,})
     

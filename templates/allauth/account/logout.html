@@ -7,21 +7,21 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mb-5">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
+        <div class="maxwidth">
             <p>{% trans 'Are you sure you want to log out?' %}</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
+        <div class="maxwidth">
 
             <form method="post" action="{% url 'account_logout' %}">
                 {% csrf_token %}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-custom btn-lg mb-5" type="submit">{% trans 'Log Out' %}</button>
+                <button class="link-btn" type="submit">{% trans 'Log Out' %}</button>
             </form>
         </div>
     </div>

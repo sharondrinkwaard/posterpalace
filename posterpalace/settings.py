@@ -30,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', 'd3v3l0pment')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-sharondrink-posterpalac-a99v181rx8i.ws.codeinstitute-ide.net', 'poster-palace-efab0122aec6.herokuapp.com', 'localhost']
 
@@ -117,7 +117,7 @@ MESSAGE_TAGS = {
         messages.ERROR: 'alert-danger',
     }
 
-# SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

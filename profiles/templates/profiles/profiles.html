@@ -9,18 +9,18 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="block-middle">
                 <br>
                 <h2 class="logo-font mb-4">Hello <strong>{{user.username}}</strong></h2>
                 <hr>
-                    <h3 id="previous-orders">Your order history:</h3>
+                    <h3 id="previous-orders" class="mb-4">Your order history:</h3>
                      {% if user.userprofile.orders %}
-                    <table>
+                    <table class="mb-4">
                         <thead>
                             <tr>
-                                <th scope="col">Order Number</th>
-                                <th scope="col">Poster Name</th>
-                                <th scope="col">Order Date</th>
+                                <th scope="col">Order Number |</th>
+                                <th scope="col">Poster Name |</th>
+                                <th scope="col">Order Date |</th>
                                 <th scope="col">Order Total</th>
                             </tr>
                         </thead>
@@ -53,9 +53,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="block-middle">
                 <h3 id="personal-info">Your personal information</h3>
-                <form class="" action="{% url 'profiles' %}" method="POST" id="profile-update-form">
+                <form class="maxwidth" action="{% url 'profiles' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <button id="link-btn" class="float-right">Update Information</button>
