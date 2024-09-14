@@ -1,15 +1,17 @@
 Hello {{ order.first_name }},
 
-Thank you for you purchase!
-You can find the details below.
+Thank you for your purchase! 
+You can download your posters by visiting the following link:
 
+{{ download_link }}
+
+Your details:
 Order Number: {{ order.order_number }}
 Order Date: {{ order.date }}
 Total: {{ order.total }}
 
-You can now download the poster(s) attatched to this email. 
 
-If you have any trouble downloading them, please contact us!
+If you have any trouble downloading, please contact us!
 
 
 Have a fabulous day!

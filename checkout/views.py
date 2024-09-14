@@ -132,10 +132,13 @@ def checkout_success(request, order_number):
     if 'cart' in request.session:
         del request.session['cart']
 
+    # Fetch all line items (posters) related to the order
+    lineitems = order.lineitems.all()
+
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'lineitems': lineitems,  # Pass the lineitems (posters) to the template
     }
 
     return render(request, template, context)
-

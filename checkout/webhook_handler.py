@@ -18,30 +18,37 @@ class StripeWH_Handler:
         self.request = request
 
     def _send_confirmation_email(self, order):
-        '''send user a confirmation email after ordering'''
+        '''Send user a confirmation email with download link after ordering'''
         customer_email = order.email
+        customer_name = order.first_name
+
+        # Generate the link to the checkout_success page
+        download_link = self.request.build_absolute_uri(
+            reverse('checkout_success', args=[order.order_number])
+        )
+
+        # Email subject and body
         subject = render_to_string(
             'checkout/confirmation_email/confirmation_email_subject.txt',
-            {'order': order})
+            {'order': order}
+        )
         body = render_to_string(
             'checkout/confirmation_email/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
+            {
+                'order': order,
+                'customer_name': customer_name,
+                'download_link': download_link,
+            }
+        )
+
+        # Create and send the email
         email = EmailMessage(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
-            [customer_email]
+            [customer_email],
         )
-        # for loop to iterate over all lineitems.
-        # Then get the image and attatch it to the email
-        for lineitem in order.lineitems.all():
-            poster = lineitem.poster
-            if poster.image:
-                # Open the file from AWS S3 bucket using default_storage
-                with default_storage.open(poster.image.name, 'rb') as file_obj:
-                    email.attach(poster.image.name, file_obj.read(), poster.image.file.content_type)
-    
+
         try:
             email.send(fail_silently=False)
         except Exception as e:

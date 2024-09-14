@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="maxwidth">
+            <h1>Click the button below to dowload your posters!</h1><hr>
+        </div>
+        <a class="download-btn" href="{% url 'homepage' %}">DOWNLOAD</a>
+    </div>
+</div>
+{% endblock %}

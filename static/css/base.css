@@ -84,6 +84,27 @@
   cursor: pointer;
 }
 
+/* ADD TO CART - button */
+
+/* Button styling for enabled state */
+.add-to-cart {
+  position: relative;
+  background-color: #28a745; /* Custom green color */
+  color: white;
+  border: none;
+  border-radius: 26px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Styling when button is disabled */
+.add-to-cart:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 /* GALLERY / IMAGE GRID */
 .container-grid {
     display: flex;
@@ -199,25 +220,6 @@
   text-decoration: none;
   cursor: pointer;
 }
-
-
-/* ADD TO CART */
-.add-to-cart {
-
-  &::after {
-    content: "\f07a";
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: block;
-    font-family: "Font Awesome 6 Free";
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 18px;
-  }
-  
-}
-
 
 
 /* FOOTER */

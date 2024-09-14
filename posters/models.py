@@ -50,12 +50,11 @@ class Poster(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        # Generate the URL for this poster using its id
+        # Generate the URL for this poster for the sitemap
         return reverse('poster_detail', kwargs={'poster_id': self.id})
 
 class QuantityColor(models.Model):
     # Class which is used to create the form for the poster_detail page
-    # posted_by = models.ForeignKey(User, on_delete=models.CASCADE)
     color_option = models.CharField(max_length=80, choices=COLOR_CHOICES, default='Color')
     
     def __str__(self):
