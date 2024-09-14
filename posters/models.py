@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -47,6 +48,10 @@ class Poster(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        # Generate the URL for this poster using its id
+        return reverse('poster_detail', kwargs={'poster_id': self.id})
 
 class QuantityColor(models.Model):
     # Class which is used to create the form for the poster_detail page

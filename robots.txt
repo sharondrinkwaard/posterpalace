@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /accounts/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /profiles/
+Disallow: /static/
+Disallow: /media/
+Allow: /homepage/
+Allow: /posters/
+Allow: /posters/<poster_id>/
+Allow: /contact/
+
+Sitemap: https://poster-palace-efab0122aec6.herokuapp.com//sitemap.xml

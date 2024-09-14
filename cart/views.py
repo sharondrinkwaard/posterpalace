@@ -3,12 +3,13 @@ from django.views import generic, View
 from posters.models import Poster
 from django.contrib import messages
 from django.urls import reverse
+from django.http import JsonResponse
 
 def view_cart(request):
     ''' Display the shopping cart ''' 
     return render(request, 'cart/cart.html')
 
-
+   
 def add_to_cart(request, article_id):
     ''' Add articles to the shopping cart '''
     quantity = int(request.POST.get('quantity'))
@@ -59,7 +60,8 @@ def delete_from_cart(request, article_id):
         messages.success(request, f'Removed poster from your cart')
 
     request.session['cart'] = cart
-    return HttpResponse(status=200)
+    messages.success(request, f'Removed poster from your cart')
+    return render(request, 'cart/cart.html', {'cart': cart,})
 
 
 def edit_cart(request, article_id):

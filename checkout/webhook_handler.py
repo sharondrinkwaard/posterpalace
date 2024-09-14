@@ -67,7 +67,6 @@ class StripeWH_Handler:
         billing_details = stripe_charge.billing_details
         total = round(stripe_charge.amount / 100, 2)
 
-        # Update profile information if it needs to be saved
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':

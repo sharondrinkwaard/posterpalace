@@ -22,16 +22,9 @@ class Order(models.Model):
         """ Creates a unique order number using UUID """
         return uuid.uuid4().hex.upper()
     
-    # DO I NEED THIS? ---->> maybe delete?
-    # There are no delivery costs
     def update_total(self):
         """ Update order total each time a line item is added """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
-        # if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-        #     self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
-        # else:
-        #     self.delivery_cost = 0
-        # self.grand_total = self.order_total + self.delivery_costs
         print('this is the order total', self.order_total)
         print('this is the line item total sum', self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'])
         self.save()

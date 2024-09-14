@@ -14,7 +14,6 @@ def all_posters(request):
     categories = None
     query = None
 
-    # Gets the category/search request and displays the correct posters
     if request.GET:
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
@@ -29,9 +28,7 @@ def all_posters(request):
                 messages.error(request, 'Enter search criteria')
                 return redirect(reverse('posters'))
 
-            # Queries in name OR description instead of both
             queries = Q(name__icontains=query) | Q(description__icontains=query)
-            # Filters out the queries so only queries are displayed
             posters = posters.filter(queries)
 
     else:

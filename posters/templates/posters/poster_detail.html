@@ -12,7 +12,7 @@
                             <img class="card-img-top img-fluid" src="{{ poster.image.url }}" alt="{{ poster.name }}">
                         </a>
                         {% else %}
-                        <a href="">
+                        <a>
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ poster.name }}">
                         </a>
                     {% endif %}
@@ -31,7 +31,7 @@
                 {% if poster.has_color %}
                     {{ form_color | crispy }}
                 {% endif %}
-                <input class="" type="submit" class="add-to-cart" value="Add" {% if in_cart %}disabled{% endif %}>
+                <input type="submit" class="add-to-cart" value="Add" {% if in_cart %}disabled{% endif %}>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
             </div>
