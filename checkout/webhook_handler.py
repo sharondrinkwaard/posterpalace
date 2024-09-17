@@ -6,7 +6,7 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail, EmailMessage
 from django.core.files.storage import default_storage
 from django.conf import settings
-
+import stripe
 import json
 import time
 
