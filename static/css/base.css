@@ -5,13 +5,13 @@
 }
 
 
-/* NAVIGATION  BAR */
+/* ------------------------------------------------------------------------ NAVIGATION  BAR */
 #logo {
     height: 50px;
     width: auto;
 }
 
-/* INDEX HEADER */
+/* ------------------------------------------------------------------------ INDEX HEADER */
 .index-header {
     background-image: url('/static/images/art.jpg');
     background-position-y: 50%;
@@ -27,7 +27,7 @@
   width: 30px;
 }
 
-/* POSITIONING */
+/* ------------------------------------------------------------------------ POSITIONING */
 
 .block-wide {
   width: 70%;
@@ -45,7 +45,30 @@
   max-width: 500px;
 }
 
-/* BUTTONS */
+.spacer {
+  height: 100px;
+  width: 100%;
+  display: block;
+  background-color: transparent; /* Or any color if you need */
+}
+.spacer-small {
+  height: 50px;
+  width: 100%;
+  display: block;
+  background-color: transparent;
+}
+.spacer-xs {
+  height: 10px;
+  width: 100%;
+  display: block;
+  background-color: transparent;
+}
+
+#about-us {
+  margin-top: 0px;
+}
+
+/* ------------------------------------------------------------------------ BUTTONS */
 
 #link-btn {
   background-color: #4CAF50 !important;
@@ -105,13 +128,12 @@
   opacity: 0.65;
 }
 
-/* GALLERY / IMAGE GRID */
+/* ------------------------------------------------------------------------ GALLERY / IMAGE GRID */
 .container-grid {
     display: flex;
     width: 100%;
     padding: 4% 0%;
     box-sizing: border-box;
-    height: 100vh;
   }
   
   .box {
@@ -160,6 +182,49 @@
     margin-right: 50px;
     margin-left: 50px;
 }
+.poster-card {
+  height: 100%; /* Ensures the card takes the full height available */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 200px; /* Set a smaller width for each card */
+  margin: 0 auto 10px; /* Reduce the bottom margin for less vertical space */
+  background-color: #f7f7f7; /* Light grey background */
+  border-radius: 0.5rem; /* Rounds the corners of the entire card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for some depth */
+}
+
+.poster-card img {
+  width: 100%; /* Image takes up the full width of the card */
+  height: 250px; /* Fixed height for all images */
+  object-fit: cover; /* Ensures the image covers the space, maintaining aspect ratio */
+  border-radius: 0.5rem 0.5rem 0 0; /* Rounds the top corners of the image */
+}
+
+.poster-card .card-body {
+  padding: 15px;
+  background-color: transparent; /* No additional background, keeping the full card grey */
+  border-radius: 0 0 0.5rem 0.5rem; /* Rounds the bottom corners of the card */
+}
+
+.card-title, .card-text {
+  margin-bottom: 10px;
+  color: black; /* Black text for title and price */
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+
+
+
+
 
 /* Modal */
 .modal {
@@ -232,66 +297,80 @@ footer a {
     color: white;
 }
 
-/* MEDIA QUERIES */
+/* ------------------------------------------------------------------------ MEDIA QUERIES */
 @media (min-width: 768px) and (max-width: 1024px) {
   .container-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    grid-template-rows: repeat(2, 1fr);    /* Two rows */
-    gap: 2%; /* Optional spacing between boxes */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2%; 
     height: auto;
   }
-
   .box {
-    height: 40vh; /* Adjust height for tablet */
-    transition: none; /* Disable transition for tablet */
+    height: 50vh;
+    transition: none;
   }
-
   .box:hover {
     flex: 1 1 50%;
-    transition: none; /* Disable hover transition on tablet */
+    transition: none;
   }
-
   .box a img {
-    transition: none; /* Disable image transition for tablet */
+    transition: none;
   }
-
   .box:hover a img {
     width: 100%;
     height: 100%;
-    transition: none; /* Disable image hover transition for tablet */
+    transition: none;
   }
 }
 
-/* For mobile devices (max-width: 767px) */
+#about-us {
+  margin-top: 100px;;
+}
+.block-wide {
+  width: 80%;
+}
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+/* For mobile devices */
 @media (max-width: 767px) {
   .container-grid {
     display: grid;
-    grid-template-columns: 1fr; /* One column */
-    grid-template-rows: auto;   /* All items stacked */
-    gap: 2%; /* Optional spacing between boxes */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 2%;
     height: auto;
   }
-
   .box {
-    height: 40vh; /* Adjust height for mobile */
+    height: 50vh;
     margin-bottom: 4%;
-    transition: none; /* Disable transition for mobile */
+    transition: none;
   }
-
   .box:hover {
     flex: 1 1 50%;
-    transition: none; /* Disable hover transition on mobile */
+    transition: none;
   }
-
   .box a img {
-    transition: none; /* Disable image transition for mobile */
+    transition: none;
   }
-
   .box:hover a img {
     width: 100%;
     height: 100%;
-    transition: none; /* Disable image hover transition for mobile */
+    transition: none;
   }
 }
 
+#about-us {
+  margin-top: 100px;;
+}
+
+.block-wide {
+    width: 90%;
+}
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}

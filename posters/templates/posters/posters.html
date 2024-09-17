@@ -3,7 +3,7 @@
 
 {% block content %}
 <section>
-    <div class="containter-fluid h-100">
+    <div class="container-fluid h-100">
         <div class="container">
             {% for c in current_cat %}
                 {% if c.friendly_name %}
@@ -13,48 +13,27 @@
                 {% endif %}
             {% endfor %}
             <div class="row">
-            {% for poster in posters %}
+                {% for poster in posters %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card h-100 border-0">
-                    {% if poster.image %}
-                        <a href="{% url 'poster_detail' poster.id %}">
-                            <img id="{{ poster.sku }}" class="img-poster card-img-top img-fluid rounded" src="{{ poster.image.url }}" alt="{{ poster.name }}" onclick="myFunction('{{poster.sku}} output=raw');">
-                        </a>
-                    {% else %}
-                        <a href="{% url 'poster_detail' poster.id %}">
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ poster.name }}">
-                        </a>
-                    {% endif %}
-                        <div class="card-body pb-0">
-                            <h5 class="card-title mb-0">{{ poster.name }}</h5>
-                            <p class="card-text">€{{ poster.price }}</p>
+                    <div class="card poster-card h-100 border-0 shadow-sm rounded">
+                        {% if poster.image %}
+                            <a href="{% url 'poster_detail' poster.id %}">
+                                <img id="{{ poster.sku }}" class="card-img-top img-fluid" src="{{ poster.image.url }}" alt="{{ poster.name }}" onclick="myFunction('{{poster.sku}} output=raw');">
+                            </a>
+                        {% else %}
+                            <a href="{% url 'poster_detail' poster.id %}">
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ poster.name }}">
+                            </a>
+                        {% endif %}
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title text-center">{{ poster.name }}</h5>
+                            <p class="card-text text-center">€{{ poster.price }}</p>
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:1 %}
-                    <div class="col-12 d-sm-none mb-5">
-                        <hr>
-                    </div>
-                {% endif %}                        
-                {% if forloop.counter|divisibleby:2 %}
-                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                        <hr>
-                    </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:3 %}
-                    <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                        <hr>
-                    </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:4 %}
-                    <div class="col-12 d-none d-xl-block mb-5">
-                        <hr>
-                    </div>
-                {% endif %}
-            {% endfor %}
+                {% endfor %}
             </div>
         </div>
-       
     </div> 
 </section>
 {% endblock %}
