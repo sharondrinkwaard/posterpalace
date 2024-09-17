@@ -233,7 +233,65 @@ footer a {
 }
 
 /* MEDIA QUERIES */
-/* Desktop */
-/* Tablet */
-/* Mobile */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: repeat(2, 1fr);    /* Two rows */
+    gap: 2%; /* Optional spacing between boxes */
+    height: auto;
+  }
+
+  .box {
+    height: 40vh; /* Adjust height for tablet */
+    transition: none; /* Disable transition for tablet */
+  }
+
+  .box:hover {
+    flex: 1 1 50%;
+    transition: none; /* Disable hover transition on tablet */
+  }
+
+  .box a img {
+    transition: none; /* Disable image transition for tablet */
+  }
+
+  .box:hover a img {
+    width: 100%;
+    height: 100%;
+    transition: none; /* Disable image hover transition for tablet */
+  }
+}
+
+/* For mobile devices (max-width: 767px) */
+@media (max-width: 767px) {
+  .container-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* One column */
+    grid-template-rows: auto;   /* All items stacked */
+    gap: 2%; /* Optional spacing between boxes */
+    height: auto;
+  }
+
+  .box {
+    height: 40vh; /* Adjust height for mobile */
+    margin-bottom: 4%;
+    transition: none; /* Disable transition for mobile */
+  }
+
+  .box:hover {
+    flex: 1 1 50%;
+    transition: none; /* Disable hover transition on mobile */
+  }
+
+  .box a img {
+    transition: none; /* Disable image transition for mobile */
+  }
+
+  .box:hover a img {
+    width: 100%;
+    height: 100%;
+    transition: none; /* Disable image hover transition for mobile */
+  }
+}
 

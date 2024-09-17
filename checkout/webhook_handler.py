@@ -17,11 +17,39 @@ class StripeWH_Handler:
     def __init__(self, request):
         self.request = request
 
+    def stripe_webhook(request):
+        payload = request.body
+        sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+        wh_secret = settings.STRIPE_WH_SECRET  # Retrieve webhook secret from settings
+
+        try:
+            # Verify the signature and construct the event
+            event = stripe.Webhook.construct_event(
+                payload, sig_header, wh_secret
+            )
+            print("Webhook signature verified successfully")
+        except ValueError as e:
+            # Invalid payload
+            print("Invalid payload")
+            return HttpResponse(status=400)
+        except stripe.error.SignatureVerificationError as e:
+            # Invalid signature
+            print("Invalid signature")
+            return HttpResponse(status=400)
+
+        # Process the event (e.g., handle payment_intent.succeeded)
+        if event['type'] == 'payment_intent.succeeded':
+            intent = event['data']['object']  # Contains information about the payment
+            print(f"Payment for {intent['amount']} was successful!")
+            # Add your business logic here
+
+        return HttpResponse(status=200)
+
     def _send_confirmation_email(self, order):
         '''Send user a confirmation email with download link after ordering'''
         customer_email = order.email
         customer_name = order.first_name
-
+        print("Sending confirmation email...")
         # Generate the link to the checkout_success page
         download_link = self.request.build_absolute_uri(
             reverse('checkout_success', args=[order.order_number])
@@ -51,6 +79,7 @@ class StripeWH_Handler:
 
         try:
             email.send(fail_silently=False)
+            print("Email sent successfully.")
         except Exception as e:
             print(f"Error sending email: {e}")
 
@@ -62,6 +91,7 @@ class StripeWH_Handler:
     
     def handle_payment_intent_succeeded(self, event):
         '''Handle the payment_intent.succeeded webhook from Stripe'''
+        print("Webhook event received: payment_intent.succeeded")
         intent = event.data.object
         pid = intent.id
         cart = intent.metadata.cart

@@ -16,7 +16,7 @@
         <div class="maxwidth">
             <ul>
                 {% for lineitem in lineitems %}
-                    <li>
+                    <li class="list-unstyled">
                         <a href="{{ lineitem.poster.image.url }}" download>
                             Download {{ lineitem.poster.name }}
                         </a>
@@ -27,7 +27,9 @@
     </div>
     <div class="row">
         <div class="maxwidth">
+            {% if user.is_authenticated %}
             <a id="link-btn" class="" href="{% url 'profiles' %}">View my order</a>
+            {% endif %}
             <a id="link-btn" class="" href="{% url 'posters' %}">Keep Shopping</a>
         </div>
     </div>
