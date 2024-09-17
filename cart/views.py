@@ -26,7 +26,7 @@ def add_to_cart(request, article_id):
                 messages.success(request, f'Poster added to your shopping cart. 1')
             else:
                 cart[article_id]['items_by_color'][color] = quantity
-                messages.success(request, f'Poster added to your shopping cart. 2')
+                # messages.success(request, f'Poster added to your shopping cart. 2')
         else: cart[article_id] = {'items_by_color': {color: quantity}}
 
     else:
@@ -34,10 +34,9 @@ def add_to_cart(request, article_id):
             messages.success(request, f'Poster added to your shopping cart. 3')
         else:
             cart[article_id] = quantity
-            messages.success(request, f'Poster added to your shopping cart. 4')
 
     request.session['cart'] = cart
-    messages.success(request, f'Poster added to your shopping cart. 5')
+    messages.success(request, f'Poster added to your shopping cart.')
     return redirect(redirect_url)
 
 
