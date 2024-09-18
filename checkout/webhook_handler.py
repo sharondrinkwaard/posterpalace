@@ -96,7 +96,7 @@ class StripeWH_Handler:
                     last_name__iexact=billing_details.name,
                     email__iexact=billing_details.email,
                     phone_number__iexact=billing_details.phone,
-                    total=total,
+                    order_total=total,
                     original_cart=cart,
                     stripe_pid=pid,
                 )
@@ -120,7 +120,7 @@ class StripeWH_Handler:
                     user_profile=profile,
                     email__iexact=billing_details.email,
                     phone_number__iexact=billing_details.phone,
-                    total=total,
+                    order_total=total,
                     original_cart=cart,
                     stripe_pid=pid,
                 )
