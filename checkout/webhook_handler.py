@@ -125,7 +125,7 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for article_id, article_data in json.loads(cart).items():
-                    poster = Poster.objects.get(id=item_id)
+                    poster = Poster.objects.get(id=article_id)
                     if isinstance(article_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
