@@ -6,27 +6,65 @@
 
 
 /* ------------------------------------------------------------------------ NAVIGATION  BAR */
+/* General Styles */
 #logo {
-    height: 50px;
-    width: auto;
+  height: 50px;
+  width: auto;
+}
+
+.nav-link {
+  color: inherit;
+}
+.navbar .cart-total {
+  margin-left: 5px;
+  font-weight: bold;
+}
+.navbar .shopping-cart-link, 
+.navbar-nav .nav-link {
+  padding: 0 10px;
 }
 
 /* ------------------------------------------------------------------------ INDEX HEADER */
 .index-header {
-    background-image: url('/static/images/art.jpg');
-    background-position-y: 50%;
-    background-size: cover;
-    height: 40vh;
-    width: 100vh;
+  background-image: url('/static/images/art.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .header-text {
-    color: white;
+  color: white;
+  background-color: rgba(255, 193, 7, 0.9);
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
-.img-card {
-  width: 30px;
+.search-form-wrapper {
+  width: 100%;
 }
 
+.search-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.search-button {
+  border-radius: 50px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* ------------------------------------------------------------------------ POSITIONING */
 
 .block-wide {
@@ -49,7 +87,7 @@
   height: 100px;
   width: 100%;
   display: block;
-  background-color: transparent; /* Or any color if you need */
+  background-color: transparent;
 }
 .spacer-small {
   height: 50px;
@@ -112,7 +150,7 @@
 /* Button styling for enabled state */
 .add-to-cart {
   position: relative;
-  background-color: #28a745; /* Custom green color */
+  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 26px;
@@ -183,33 +221,33 @@
     margin-left: 50px;
 }
 .poster-card {
-  height: 100%; /* Ensures the card takes the full height available */
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 200px; /* Set a smaller width for each card */
-  margin: 0 auto 10px; /* Reduce the bottom margin for less vertical space */
-  background-color: #f7f7f7; /* Light grey background */
-  border-radius: 0.5rem; /* Rounds the corners of the entire card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for some depth */
+  max-width: 200px; 
+  margin: 0 auto 10px; 
+  background-color: #f7f7f7;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .poster-card img {
-  width: 100%; /* Image takes up the full width of the card */
-  height: 250px; /* Fixed height for all images */
-  object-fit: cover; /* Ensures the image covers the space, maintaining aspect ratio */
-  border-radius: 0.5rem 0.5rem 0 0; /* Rounds the top corners of the image */
+  width: 100%;
+  height: 250px; 
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .poster-card .card-body {
   padding: 15px;
-  background-color: transparent; /* No additional background, keeping the full card grey */
-  border-radius: 0 0 0.5rem 0.5rem; /* Rounds the bottom corners of the card */
+  background-color: transparent;
+  border-radius: 0 0 0.5rem 0.5rem;
 }
 
 .card-title, .card-text {
   margin-bottom: 10px;
-  color: black; /* Black text for title and price */
+  color: black;
 }
 
 .card-title {

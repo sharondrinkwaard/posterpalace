@@ -192,7 +192,7 @@ MailerLite was quite easy to set up and is working correctly.
 - - AWS bucket issue. Staticfiles were not uploading to the bucket. Due to some spelling mistakes like 'acces' instead of  'access' and naming the bucket policy instead of the bucket name itself, it was not working. When I changed those, the staticfiles where working.
 
 ### Unsolved Bugs
- - Stripe webhook
+ - Bootstrap alert doesnt close after a few seconds
 
 
 ## AWS and File Storage
@@ -204,6 +204,8 @@ By using AWS S3, the platform ensures that:
 - Static files are offloaded from the web server to improve the website’s performance and scalability.
 
 S3’s integration with Django allows Poster Palace to manage all files in the cloud, ensuring that the webshop can handle future growth with ease. AWS S3 also provides redundancy and backups, so all files are safely stored and always available for downloads by customers.
+
+By setting the Content-Disposition header to attachment (in AWS settings, Metadata), it is ensured that the file is being downloaded instead of being displayed in the browser.
 
 ## Deployment
 1. <strong>Create a Heroku Account.</strong> Go to Heroku's website. Sign up for a free Heroku account if you don’t have one.

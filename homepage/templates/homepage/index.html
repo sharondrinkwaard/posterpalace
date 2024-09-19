@@ -4,17 +4,25 @@
 {% block content %}
 <!-- Homepage header + img + search form -->
 <section>
-    <div class="index-header w-100">
-        <div class="d-flex justify-content-center flex-column">
-            <h1 class=" header-text mt-5">The best stock photo's available now!</h1>
-            <div class="header-form w-50">
-                <form class="d-flex w-50 mt-2" method="GET" action="{% url 'posters' %}" role="search">
-                    <input class="form-control input-group border-right-0 py-2" name="request" type="search" placeholder="What are you looking for?" aria-label="Search">
-                    <button class="input-group-text bg-white" type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-        </div>
-    </div>
+  <div class="index-header w-100 d-flex justify-content-center align-items-center">
+      <div class="text-center">
+          <h1 class="header-text">The best stock photos available now!</h1>
+          <div class="search-form-wrapper">
+              <form class="search-form row w-100 mt-2" method="GET" action="{% url 'posters' %}" role="search">
+                  <!-- Wider input on mobile/tablet, narrower on desktop -->
+                  <div class="col-10 col-md-9 col-lg-8">
+                      <input class="form-control search-input py-2" name="request" type="search" placeholder="What are you looking for?" aria-label="Search">
+                  </div>
+                  <!-- Small button across all devices -->
+                  <div class="col-2 col-md-3 col-lg-2 d-flex align-items-center">
+                      <button class="btn btn-success search-button" type="submit">
+                          <i class="fa fa-search"></i>
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
 </section>
 {% endblock %}
 
