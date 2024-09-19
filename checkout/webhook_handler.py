@@ -118,7 +118,7 @@ class StripeWH_Handler:
                     first_name=billing_details.name,
                     last_name=billing_details.name,
                     user_profile=profile,
-                    emailt=billing_details.email,
+                    email=billing_details.email,
                     phone_number=billing_details.phone,
                     order_total=total,
                     original_cart=cart,
