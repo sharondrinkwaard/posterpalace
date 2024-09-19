@@ -107,7 +107,7 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            # self._send_confirmation_email(order)
+            self._send_confirmation_email(order)
             print('message from the payment-intent-success')
             return HttpResponse(
                 content=(f'Webhook received: {event["type"]} | SUCCESS: '
@@ -150,7 +150,7 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-        # self._send_confirmation_email(order)
+        self._send_confirmation_email(order)
         print('message from the payment-intent-success')
         return HttpResponse(
             content=(f'Webhook received: {event["type"]} | SUCCESS: '
