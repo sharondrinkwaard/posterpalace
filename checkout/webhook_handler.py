@@ -18,43 +18,43 @@ class StripeWH_Handler:
     def __init__(self, request):
         self.request = request
 
-    # def _send_confirmation_email(self, order):
-    #     '''Send user a confirmation email with download link after ordering'''
-    #     customer_email = order.email
-    #     customer_name = order.first_name
-    #     print("Sending confirmation email...")
-    #     # Generate the link to the checkout_success page
-    #     download_link = self.request.build_absolute_uri(
-    #         reverse('checkout_success', args=[order.order_number])
-    #     )
+    def _send_confirmation_email(self, order):
+        '''Send user a confirmation email with download link after ordering'''
+        customer_email = order.email
+        customer_name = order.first_name
+        print("Sending confirmation email...")
+        # Generate the link to the checkout_success page
+        download_link = self.request.build_absolute_uri(
+            reverse('checkout_success', args=[order.order_number])
+        )
 
-    #     # Email subject and body
-    #     subject = render_to_string(
-    #         'checkout/templates/confirmation_email/confirmation_email_subject.txt',
-    #         {'order': order}
-    #     )
-    #     body = render_to_string(
-    #         'checkout/templates/confirmation_email/confirmation_email_body.txt',
-    #         {
-    #             'order': order,
-    #             'customer_name': customer_name,
-    #             'download_link': download_link,
-    #         }
-    #     )
+        # Email subject and body
+        subject = render_to_string(
+            'confirmation_email/confirmation_email_subject.txt',
+            {'order': order}
+        )
+        body = render_to_string(
+            'confirmation_email/confirmation_email_body.txt',
+            {
+                'order': order,
+                'customer_name': customer_name,
+                'download_link': download_link,
+            }
+        )
 
-    #     # Create and send the email
-    #     email = EmailMessage(
-    #         subject,
-    #         body,
-    #         settings.DEFAULT_FROM_EMAIL,
-    #         [customer_email],
-    #     )
+        # Create and send the email
+        email = EmailMessage(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [customer_email],
+        )
 
-    #     try:
-    #         email.send(fail_silently=False)
-    #         print("Email sent successfully.")
-    #     except Exception as e:
-    #         print(f"Error sending email: {e}")
+        try:
+            email.send(fail_silently=False)
+            print("Email sent successfully.")
+        except Exception as e:
+            print(f"Error sending email: {e}")
 
     def handle_event(self, event):
         '''Handle a generic/unknown/unexpected webhook event'''
