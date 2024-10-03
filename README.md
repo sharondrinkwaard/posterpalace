@@ -216,7 +216,7 @@ As far as I could see there are no specific html errors in this project.
 ### Manual Testing - Python & JavaScript
 - I tested it the project displays well in Chrome and Microsoft Edge.
 
-I tested if all buttons and links work correctly. I confirm that they indeed do by clicking on all of them.
+- I tested if all buttons and links work correctly. I confirm that they indeed do by clicking on all of them.
 
 - I confirm that this design is responsive, functions well and looks good on all standard media devices, desktop, tablet and mobile phone. I tested this by using DevTools in the Chrome browser.
 
