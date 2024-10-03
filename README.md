@@ -110,26 +110,32 @@ The payment system I am currently using is [Stripe](https://stripe.com). I used 
 ### Wireframes
 The wireframes are very basic and only display the nesseccary features. 
 
-Homepage 
+Homepage
+
 ![Homepage](https://posterpalace.s3.amazonaws.com/media/home.png)
 
 
 Product page
+
 ![Products](https://posterpalace.s3.amazonaws.com/media/products-page.png)
 
 Product detail
+
 ![Product detail](https://posterpalace.s3.amazonaws.com/media/product-detail.png)
 
 
 Shopping cart
+
 ![shoppingcart](https://posterpalace.s3.amazonaws.com/media/shoppingcart.png)
 
 
 Checkout page
+
 ![Payments](https://posterpalace.s3.amazonaws.com/media/payment.png)
 
 
 Order confirmation
+
 ![order confirmation](https://posterpalace.s3.amazonaws.com/media/order-confirmation.png)
 
 ### Flowchart
@@ -156,13 +162,32 @@ When you hover over it (only on desktop), the image zooms in and the letters und
 - MailerLite
 
 ## Agile
-When planning this project, I started writing the epics first. Then I broke them down into user stories. For this I have created an Excel sheet and a kanban board. I prefered the Excel sheet because for me it created and clearer overview than the kanban board.
+When planning this project, I started writing the epics first. Then I broke them down into user stories. For this I have created an Excel sheet and a kanban board.
 
 For this portfolio project the estimated time is 16 weeks.
 For the total project (including the features left to implement) I am estimating 20 weeks
 
-### User stories and kanban board
+Backlog:
+![Backlog](https://posterpalace.s3.amazonaws.com/media/backlog.png)
+In progress:
+![Kanban board in progress](https://posterpalace.s3.amazonaws.com/media/kanban_board_progress.png)
+Finished:
+![Kanban board finished](https://posterpalace.s3.amazonaws.com/media/kanban_board_finish.png)
+
+
+Items:
+![Team items](https://posterpalace.s3.amazonaws.com/media/team_items_1.png)
+![Team items 2](https://posterpalace.s3.amazonaws.com/media/team_items_2.png)
+
+
+### User stories and kanban board link
 [Click Here](https://github.com/users/sharondrinkwaard/projects/7)
+
+User stories are found in the sheet below and are devided by three categories named customer, admin and developer.
+The light blue and white lines seperate the epics. Mostly, one user story is also one epic. 
+Normally I would add several user stories under one epic, but in this case, the user stories where already quite big, that I decided to make (almost) every user story, also one epic. 
+This way it helped me keep track and stay focussed on one user story.
+![User stories](https://posterpalace.s3.amazonaws.com/media/user_stories.png)
 
 ## SEO
 - I added Meta tags to add keywords and a description
